@@ -1,13 +1,13 @@
 import React from "react";
 import About from "../components/About";
-import Accordion from "../components/Accordion";
+import Accordions from "../components/Accordions";
 import StockList from "../components/StockList";
 
 const Home = ({ coins }) => {
   return (
     <div>
       <About />
-      <Accordion />
+      <Accordions />
       <StockList />
     </div>
   );
