@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div>
+    <div className='rounded-div'>
       <h4>About Us</h4>
       <p>Screener project is aimed at providing a learning platform to first time stock investors,
         learners and amateur investors who possess limited understanding of financial jargons and want

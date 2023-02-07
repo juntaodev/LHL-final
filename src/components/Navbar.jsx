@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import ThemeToggle from "./ThemeToggle";
+
 
 const Navbar = () => {
   return (
@@ -8,9 +8,7 @@ const Navbar = () => {
       <Link to="/">
         <h1 className="text-2xl ">Screener</h1>
       </Link>
-      <div className="hidden md:block">
-        <ThemeToggle />
-      </div>
+      
     </div>
   )
 }
