@@ -9,7 +9,7 @@ const Navbar = () => {
         <h1 className="text-2xl ">Screener</h1>
       </Link>
       <div className="hidden md:block">
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
     </div>
   )
