@@ -23,10 +23,8 @@ const RealTime = () => {
   const time = today.toLocaleTimeString(locale, { hour: 'numeric', hour12: true, minute: 'numeric' });
 
   return (
-    <div className='my-4'>
-    {date}
-    {time}
-    {wish}
+    <div className='py-2'>
+    {date}{time}, {wish}
     </div>
   );
 };

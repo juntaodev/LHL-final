@@ -4,17 +4,18 @@ import { useParams } from "react-router-dom";
 
 import StockTitle from './StockTitle';
 import StockPrice from './StockPrice';
-
+import RealTime from './RealTime';
 
 function StockHeader() {
   
 
   return (
-    <div>
-
+    <div className=''>
+      <div className='grid flex-grow card  place-items-center'>
+      <RealTime/>
       <StockTitle/>
       <StockPrice/>
-
+      </div> 
     </div>
   )
 }

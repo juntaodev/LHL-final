@@ -26,7 +26,7 @@ function StockPrice() {
       .then(response => {
         setStockPrice(response.data.price);
         setLoading(false);
-        console.log("price", response.data)
+        // console.log("price", response.data)
       })
       .catch(error => {
         setError(error);
@@ -37,10 +37,11 @@ function StockPrice() {
   if (!stockPrice) {
     return <div>Loading...</div>;
   }
-
+  if (error) return <p>An error occurred: {error.message}</p>;
+  
   return (
-    <div className="my-4">
-      <p>${Number(stockPrice).toFixed(2)}</p>
+    <div className="py-2">
+      <p className='text-2xl font-bold text-gray-700 '>${Number(stockPrice).toFixed(2)}</p>
     </div>
   )
 }
