@@ -19,7 +19,7 @@ const StockKeyValue = () => {
         const response = await axios.get(url);
         setstock(response.data);
         setLoading(false);
-        console.log("keyvalue", response.data);
+        // console.log("keyvalue", response.data);
       } catch (error) {
         setError(error);
       }
@@ -56,16 +56,12 @@ const StockKeyValue = () => {
     return (num / si[index].v).toFixed(2).replace(/\.0+$|(\.[0-9]*[1-9])0+$/, "$1") + si[index].s;
   };
 
-  // convert decimal to percentage format
-  const decToPercentage = (decimal) => {
-    return `${(decimal * 100).toFixed(2)}%`;
-  };
   
   return (
     <div className="grid flex-grow card bg-teal-50 rounded-box place-items-center">
-      <div className=''>
-        <p><strong>Key Values</strong></p> 
-      </div>
+      
+      <p className='card pt-4 '><strong>Key Values</strong></p> 
+      
       <div className="grid grid-cols-4 p-4 gap-4">
         
         {/* Market Cap */}
@@ -130,7 +126,7 @@ const StockKeyValue = () => {
               </label>   
             </div>
             {stock.EPS? (
-            <p className="pl-3">${stock.EPS}</p>
+            <p className="pl-3">${Number(stock.EPS).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -155,7 +151,7 @@ const StockKeyValue = () => {
               </label>   
             </div>
             {stock.PERatio? (
-            <p className="pl-3">{stock.PERatio}</p>
+            <p className="pl-3">{Number(stock.PERatio).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -171,7 +167,7 @@ const StockKeyValue = () => {
                 <label className="modal-box relative" htmlFor="">
                  
                  <p className="py-2"><strong>Revenue</strong> is the amount of money a company makes, before anything else is subtracted. Revenue is also commonly referred to as sales, or the top line since it's literally the first line of a company's income statement. Revenue growth for a company is very important on the public markets since investors tend to pay more for companies that are growing revenues. </p>
-                 <p className="py-2">A lack of revenue growth, or decline of revenue is typically seen as a negative thing in the stock market. However, it's not always a red flag because many companies have more “seasonal” revenue trends, which means certain quarters can be better than others. One example of this is Amazon. Amazon sees a very strong Q4 because that's when the Holidays take place and people are buying presents. This results in Amazon seeing increased revenue in its fourth quarter, and then a revenue decline in Q1 of the next year. If you're looking at the quarter-over-quarter (QoQ) revenue growth from Q4 to Q1, you will most likely see it decline, but this isn't necessarily a bad thing or a red flag..</p>
+                 <p className="py-2">A lack of revenue growth, or decline of revenue is typically seen as a negative thing in the stock market. However, it's not always a red flag because many companies have more “seasonal” revenue trends, which means certain quarters can be better than others. One example of this is Amazon. Amazon sees a very strong Q4 because that's when the Holidays take place and people are buying presents. This results in Amazon seeing increased revenue in its fourth quarter, and then a revenue decline in Q1 of the next year. If you're looking at the quarter-over-quarter (QoQ) revenue growth from Q4 to Q1, you will most likely see it decline, but this isn't necessarily a bad thing or a red flag.</p>
                  <p className="py-2">What investors typically do is take a look at the trend of the revenue over a longer period of time. They either look at the trailing twelve months (TTM) revenue growth or the yearly revenue growth to see a more zoomed out picture. This can also be a great practice when looking at a company's fundamentals. </p>
                  <p className="py-2">However, don't be blinded by revenue growth, and make sure the company is making profits from that revenue and bringing in positive cash flow, or at least showing promise of that happening in the future. Many companies in the market will spend every dollar they can to grow their revenue, sometimes at the sacrifice of shareholder value. They can be taking on massive amounts of debt just to grow the top line. So again, revenue growth isn't everything.</p>
                  
@@ -204,7 +200,7 @@ const StockKeyValue = () => {
               </label>  
             </div>
             {stock.PriceToSalesRatioTTM? (
-            <p className="pl-3">{stock.PriceToSalesRatioTTM}</p>
+            <p className="pl-3">{Number(stock.PriceToSalesRatioTTM).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -229,7 +225,7 @@ const StockKeyValue = () => {
               </label>  
             </div>
             {stock.BookValue? (
-            <p className="pl-3">${stock.BookValue}</p>
+            <p className="pl-3">${Number(stock.BookValue).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -254,7 +250,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stock.PriceToBookRatio? (
-            <p className="pl-3">{stock.PriceToBookRatio}</p>
+            <p className="pl-3">{Number(stock.PriceToBookRatio).toFixed(2)}</p>
             ) : null}
         </div>
         
