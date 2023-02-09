@@ -48,11 +48,10 @@ const StockKeyValue = () => {
   
   return (
     <div className="grid flex-grow card bg-base-200 rounded-box place-items-center ">
-        {/* about section */}
-        <div className=''>
-          <p><strong>Trading Stats </strong></p> 
-        </div>
-        <div className="grid grid-cols-3 p-4 gap-4">
+        
+      <p className='card pt-4 '><strong>Trading Stats </strong></p> 
+        
+      <div className="grid grid-cols-3 p-4 gap-4">
 
           {/*  */}
           <div>
@@ -236,7 +235,7 @@ const StockKeyValue = () => {
           
 
 
-        </div>
+      </div>
     </div>
   )
 }
