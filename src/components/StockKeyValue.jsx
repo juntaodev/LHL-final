@@ -62,14 +62,17 @@ const StockKeyValue = () => {
   };
   
   return (
-     <div className="grid flex-grow card bg-base-200 rounded-box place-items-center">
-      <p><strong>Key Stats</strong></p> 
-      <div className="grid grid-cols-4 py-4 gap-8">
+    <div className="grid flex-grow card bg-teal-50 rounded-box place-items-center">
+      <div className=''>
+        <p><strong>Key Values</strong></p> 
+      </div>
+      <div className="grid grid-cols-4 p-4 gap-4">
         
+        {/* Market Cap */}
         <div>
-            <div className="text-gray-600 text-md">
+          <div className="text-gray-600 text-md">
               {/* The button to open modal */}
-              <label htmlFor="MarketCap" className="btn btn-sm btn-ghost ">Market Cap</label>
+              <label htmlFor="MarketCap" className="btn btn-sm btn-ghost text-left">Market Cap</label>
 
               {/* Put this part before </body> tag */}
               <input type="checkbox" id="MarketCap" className="modal-toggle" />
@@ -80,16 +83,17 @@ const StockKeyValue = () => {
                   <p className="py-2">When investors buy a stock, this is one of the main  numbers to pay attention to, as this is the value at which they are buying  shares in the company at. Many investors consider the market cap more  important than the share price of a business, as the Market Cap is what is  used in other common valuation methods and ratios, not the share price.</p>
                 </label>
               </label>              
-            </div>
-            {stock.MarketCapitalization? (
-            <p className="pl-3">${intToString(stock.MarketCapitalization)}</p>
-            ) : null}
+          </div>
+          {stock.MarketCapitalization? (
+          <p className="pl-3">${intToString(stock.MarketCapitalization)}</p>
+          ) : null}
         </div>
-
+        
+        {/* Shares Outstanding */}
         <div>
-            <div className="text-gray-600 text-md">
+          <div className="text-gray-600 text-md">
               {/* The button to open modal */}
-              <label htmlFor="SharesOutstanding" className="btn btn-sm btn-ghost ">Shares Outstanding</label>
+              <label htmlFor="SharesOutstanding" className="btn btn-sm btn-ghost text-left">Shares Outstanding</label>
 
               {/* Put this part before </body> tag */}
               <input type="checkbox" id="SharesOutstanding" className="modal-toggle" />
@@ -100,16 +104,17 @@ const StockKeyValue = () => {
                  <p className="py-2">Investors like to pay attention to the trend of the company's outstanding shares over time, because it helps them see if the business is issuing more shares consistently (which lowers the share price), or if the company is buying back shares and rewarding shareholders by removing shares from the public market (which increases the share price for investors).</p>
                 </label>
               </label>        
-            </div>
-            {stock.SharesOutstanding? (
-            <p className="pl-3">{intToString(stock.SharesOutstanding)}</p>
-            ) : null}
+          </div>
+          {stock.SharesOutstanding? (
+          <p className="pl-3">{intToString(stock.SharesOutstanding)}</p>
+          ) : null}
         </div>
-
+        
+        {/* EPS */}
         <div>
             <div className="text-gray-600 text-md">
               {/* The button to open modal */}
-              <label htmlFor="EPS" className="btn btn-sm btn-ghost ">EPS</label>
+              <label htmlFor="EPS" className="btn btn-sm btn-ghost text-left">EPS</label>
 
               {/* Put this part before </body> tag */}
               <input type="checkbox" id="EPS" className="modal-toggle" />
@@ -128,11 +133,12 @@ const StockKeyValue = () => {
             <p className="pl-3">${stock.EPS}</p>
             ) : null}
         </div>
-
+        
+        {/* PE */}
         <div>
             <div className="text-gray-600 text-md">
               {/* The button to open modal */}
-              <label htmlFor="P/E" className="btn btn-sm btn-ghost ">P/E</label>
+              <label htmlFor="P/E" className="btn btn-sm btn-ghost text-left">P/E</label>
 
               {/* Put this part before </body> tag */}
               <input type="checkbox" id="P/E" className="modal-toggle" />
@@ -152,11 +158,12 @@ const StockKeyValue = () => {
             <p className="pl-3">{stock.PERatio}</p>
             ) : null}
         </div>
-
+        
+        {/* Revenue */}
         <div>
             <div className="text-gray-600 text-md">
               {/* The button to open modal */}
-              <label htmlFor="Revenue" className="btn btn-sm btn-ghost ">Revenue (ttm)</label>
+              <label htmlFor="Revenue" className="btn btn-sm btn-ghost text-left">Revenue (ttm)</label>
 
               {/* Put this part before </body> tag */}
               <input type="checkbox" id="Revenue" className="modal-toggle" />
@@ -175,11 +182,12 @@ const StockKeyValue = () => {
             <p className="pl-3">${intToString(stock.RevenueTTM)}</p>
             ) : null}
         </div>
-
+        
+        {/* PS */}
         <div>
             <div className="text-gray-600 text-md">
               {/* The button to open modal */}
-              <label htmlFor="P/S" className="btn btn-sm btn-ghost ">P/S (ttm)</label>
+              <label htmlFor="P/S" className="btn btn-sm btn-ghost text-left">P/S (ttm)</label>
 
               {/* Put this part before </body> tag */}
               <input type="checkbox" id="P/S" className="modal-toggle" />
@@ -199,11 +207,12 @@ const StockKeyValue = () => {
             <p className="pl-3">{stock.PriceToSalesRatioTTM}</p>
             ) : null}
         </div>
-
+        
+        {/* Book Value */}
         <div>
             <div className="text-gray-600 text-md">
               {/* The button to open modal */}
-              <label htmlFor="BookValue" className="btn btn-sm btn-ghost ">Book Value</label>
+              <label htmlFor="BookValue" className="btn btn-sm btn-ghost text-left">Book Value</label>
 
               {/* Put this part before </body> tag */}
               <input type="checkbox" id="BookValue" className="modal-toggle" />
@@ -223,11 +232,12 @@ const StockKeyValue = () => {
             <p className="pl-3">${stock.BookValue}</p>
             ) : null}
         </div>
-
+        
+        {/* P/B */}
         <div>
             <div className="text-gray-600 text-md">
               {/* The button to open modal */}
-              <label htmlFor="P/B" className="btn btn-sm btn-ghost ">P/B</label>
+              <label htmlFor="P/B" className="btn btn-sm btn-ghost text-left">P/B</label>
 
               {/* Put this part before </body> tag */}
               <input type="checkbox" id="P/B" className="modal-toggle" />
@@ -247,70 +257,108 @@ const StockKeyValue = () => {
             <p className="pl-3">{stock.PriceToBookRatio}</p>
             ) : null}
         </div>
-
+        
+        {/* EBITDA */}
         <div>
             <div className="text-gray-600 text-md">
               {/* The button to open modal */}
-              <label htmlFor="ProfitMargin" className="btn btn-sm btn-ghost ">Profit Margin</label>
+              <label htmlFor="EBITDA" className="btn btn-sm btn-ghost text-left">EBITDA</label>
 
               {/* Put this part before </body> tag */}
-              <input type="checkbox" id="ProfitMargin" className="modal-toggle" />
-              <label htmlFor="ProfitMargin" className="modal cursor-pointer">
+              <input type="checkbox" id="EBITDA" className="modal-toggle" />
+              <label htmlFor="EBITDA" className="modal cursor-pointer">
                 <label className="modal-box relative" htmlFor="">
-                 <p className="py-2 font-bold">Book Value = Total Assets - Total Liabilities</p>
-                 <p className="py-2">Book value is a company’s equity value as reported in its financial statements. The book value figure is typically viewed in relation to the company’s stock value (market capitalization) and is determined by taking the total value of a company’s assets and subtracting any of the liabilities the company still owes.</p>
-                 <p className="py-2">Book value is typically shown per share, determined by dividing all shareholder equity by the number of common stock shares that are outstanding.</p>
-                 <p className="py-2">Book value is considered important in terms of valuation because it represents a fair and accurate picture of a company’s worth. The figure is determined using historical company data and isn’t typically a subjective figure. It means that investors and market analysts get a reasonable idea of the company’s worth.</p>
-                 <p className="py-2">Book value is primarily important for investors using a value investing strategy because it can enable them to find bargain deals on stocks, especially if they suspect that a company is undervalued and/or is poised to grow, and the stock is going to rise in price.</p>
-                 <p className="py-2">Stocks that trade below book value are often considered a steal because they are anticipated to turn around and trade higher. Investors who can grab the stocks while costs are low in relation to the company’s book value are in an ideal position to make a substantial profit and be in a good trading position down the road.</p>
-                 <p className="py-2">Book value is a widely-used financial metric to determine a company’s value and to ascertain whether its stock price is over- or under-appreciated. It’s wise for investors and traders to pay close attention, however, to the nature of the company and other assets that may not be well represented in the book value.</p>
-                </label>
-              </label> 
-            </div>
-            {stock.ProfitMargin? (
-            <p className="pl-3">{decToPercentage(stock.ProfitMargin)}</p>
-            ) : null}
-        </div>
-
-        <div>
-            <div className="text-gray-600 text-md">
-              {/* The button to open modal */}
-              <label htmlFor="OperatingMargin" className="btn btn-sm btn-ghost ">Operating Margin (ttm)</label>
-
-              {/* Put this part before </body> tag */}
-              <input type="checkbox" id="OperatingMargin" className="modal-toggle" />
-              <label htmlFor="OperatingMargin" className="modal cursor-pointer">
-                <label className="modal-box relative" htmlFor="">
-                 <p className="py-2 font-bold">Operating Margin = (Operating Income / Revenue) * 100</p>
-                 <p className="py-2">Investors like to pay attention to a company's operating margin because it tells them what percentage of the revenue is being converted into operating income. The higher the operating margin the better, because it means the company's operations are more efficient at turning revenue into cash.</p>
-                 <p className="py-2">Typically investors will also like to take note of how the operating and other margins are performing over time to see if the company is increasing its margins or if they're decreasing. Margins increasing means the company is making more cash from its operations for every dollar of revenue, which is a good thing because it means they're becoming more efficient.</p>
-                 <p className="py-2">Keep in mind however that operating income is not straight profits for the company. A company may have a positive operating margin while it is still losing money. Investors typically use this look at this margin when looking at a company that isn't yet profitable, or is investing heavily into growth to help gauge its profit potential.</p>
-                 <p className="py-2">If the operating cash flow margin is negative, then it means the company's operating are losing money, and the company as a whole is most likely losing money as well.</p>
-                 <p className="py-2">Investors are typically willing to pay higher price ratios for companies with higher margins. If margins are expanding, then it is not unusual to see the price ratios increase.</p>
+                 <p className="py-2 font-bold">EBITDA = Net Income + Taxes + Interest Expense + Depreciation & Amortization</p>
+                 <p className="py-2">EBITDA stands for earnings before interest, taxes, depreciation and amortization. In other words, this is what a company makes in earnings before it pays taxes and  interest, and accounts for depreciation/amortization that occurred during the reporting period</p>
+                 <p className="py-2">Investors like to pay attention to EBITDA because it shows them how profitable the company is before it services its debts, pays taxes, and writes off its non cash expenses of depreciation and amortization. It can help show the core earnings of a business.</p>
+                 <p className="py-2">The metric isn't used as much as the net income, or real earnings metrics and most investors do not prefer EBITDA over the other metrics. However, EBITDA can help give investors insights into a company that is growing but isn't yet profitable. In other words, some investors use this metric on businesses that are currently focused on capturing growth instead of profitability.</p>
+                 <p className="py-2">Investors need to be careful using the EBITDA metric though, because some businesses can focus too much on EBITDA, which again, isn't true profitability. A company can have positive EBITDA while still losing money and burning cash.</p>
+                 <p className="py-2">Warren Buffett, a legendary investor, does not like the EBITDA metric because he believes it is not a true profitability metric. For example, EBITDA doesn't factor in depreciation and amortization. These are non-cash expenses, but they're still the company's assets losing value. Eventually the company will have to maintain or replace depreciated assets, so investors like Warren believe depreciation and amortization should be factored in.</p>
                  
                 </label>
               </label> 
             </div>
-            {stock.OperatingMarginTTM? (
-            <p className="pl-3">{decToPercentage(stock.OperatingMarginTTM)}</p>
+            {stock.EBITDA? (
+            <p className="pl-3">${intToString(stock.EBITDA)}</p>
             ) : null}
         </div>
 
+        {/* EVToEBITDA */}
         <div>
-            <p className="text-gray-600 text-md">Return On Assets (ttm)</p>
-            {stock.ReturnOnAssetsTTM? (
-            <p className="pl-3">{decToPercentage(stock.ReturnOnAssetsTTM)}</p>
+            <div className="text-gray-600 text-md">
+              {/* The button to open modal */}
+              <label htmlFor="EVToEBITDA" className="btn btn-sm btn-ghost text-left">EV/EBITDA</label>
+
+              {/* Put this part before </body> tag */}
+              <input type="checkbox" id="EVToEBITDA" className="modal-toggle" />
+              <label htmlFor="EVToEBITDA" className="modal cursor-pointer">
+                <label className="modal-box relative" htmlFor="">
+                 <p className="py-2 font-bold">EV = Market Cap + Total Debt - Cash and cash equivalents</p>
+                 <p className="py-2">Enterprise value(EV) differs significantly from simple market capitalization in several ways, and many consider it to be a more accurate representation of a firm's value. EV tells investors or interested parties a company's value and how much another company would need if it wanted to purchase that company.</p>
+                 <p className="py-2">There is one other consideration: a company's EV can be negative if the total value of its cash and cash equivalents surpasses that of the combined total of its market cap and debts. This is a sign that a company is not using its assets very well—it has too much cash sitting around not being used. Extra cash can be used for many things, such as distributions, buybacks, expansion, research and development, maintenance, employee pay raises, bonuses, or paying off debts.</p>
+                 <p className="py-2">Enterprise value is used as the basis for many financial ratios that measure the performance of a company. For example, the enterprise multiple contains enterprise value. It relates the total value of a company from all sources to a measure of operating earnings generated—the earnings before interest, taxes, depreciation, and amortization (EBITDA).</p>
+                 <p className="py-2">EBITDA measures a company's ability to generate revenue and is used as an alternative to simple earnings or net income (in some circumstances). EBITDA, however, can be misleading because it strips out the cost of capital investments like property, plant, and equipment. Another figure, EBIT, can be used as a similar financial metric without the drawback of removing depreciation and amortization expenses related to property, plant, and equipment (PP&E).</p>
+                 <p className="py-2">The enterprise multiple (EV/EBITDA) metric is used as a valuation tool to compare the value of a company and its debt to the company's cash earnings, less its non-cash expenses. As a result, it's ideal for analysts and investors looking to compare companies within the same industry.</p>
+                 
+                </label>
+              </label> 
+            </div>
+            {stock.EVToEBITDA? (
+            <p className="pl-3">{stock.EVToEBITDA}</p>
             ) : null}
         </div>
 
+        {/* EVToRevenue */}
         <div>
-            <p className="text-gray-600 text-md">Return On Equity (ttm)</p>
-            {stock.ReturnOnEquityTTM? (
-            <p className="pl-3">{decToPercentage(stock.ReturnOnEquityTTM)}</p>
+            <div className="text-gray-600 text-md">
+              {/* The button to open modal */}
+              <label htmlFor="EVToRevenue" className="btn btn-sm btn-ghost text-left">EV/Revenue</label>
+
+              {/* Put this part before </body> tag */}
+              <input type="checkbox" id="EVToRevenue" className="modal-toggle" />
+              <label htmlFor="EVToRevenue" className="modal cursor-pointer">
+                <label className="modal-box relative" htmlFor="">
+                 <p className="py-2 font-bold">EV = Market Cap + Total Debt - Cash and cash equivalents</p>
+                 
+                 <p className="py-2">Enterprise value(EV) differs significantly from simple market capitalization in several ways, and many consider it to be a more accurate representation of a firm's value. EV tells investors or interested parties a company's value and how much another company would need if it wanted to purchase that company.</p>
+                 <p className="py-2">There is one other consideration: a company's EV can be negative if the total value of its cash and cash equivalents surpasses that of the combined total of its market cap and debts. This is a sign that a company is not using its assets very well—it has too much cash sitting around not being used. Extra cash can be used for many things, such as distributions, buybacks, expansion, research and development, maintenance, employee pay raises, bonuses, or paying off debts.</p>
+                 <p className="py-2"> EV/Revenue is regarded as a more accurate measure than the Price/Sales ratio since it considers the value and amount of debt a company must repay at some point.</p>
+                 <p className="py-2">It's believed that the lower the EV/Revenue multiple, the more attractive—or undervalued—the company is. The EV/Revenue ratio can be negative when the cash held by a company is more than the market capitalization and debt value. A negative EV/Revenue implies that a company can pay off all of its debts.</p>
+                 
+                </label>
+              </label> 
+            </div>
+            {stock.EVToRevenue? (
+            <p className="pl-3">{stock.EVToRevenue}</p>
             ) : null}
         </div>
+
+        {/* ForwardPE */}
+        <div>
+            <div className="text-gray-600 text-md">
+              {/* The button to open modal */}
+              <label htmlFor="ForwardPE " className="btn btn-sm btn-ghost text-left">Forward P/E</label>
+
+              {/* Put this part before </body> tag */}
+              <input type="checkbox" id="ForwardPE " className="modal-toggle" />
+              <label htmlFor="ForwardPE " className="modal cursor-pointer">
+                <label className="modal-box relative" htmlFor="">
+                 <p className="py-2 font-bold">Forward P/E = Today's Market Cap / Forward Earnings Projections</p>
+                 <p className="py-2">The forward P/E is the P/E of the company 12 months out from today, based on the projections analysts are giving the company. Whenever you see the word “Forward” in the market, it means the next 12 months at least, or a future projection.</p>
+                 <p className="py-2">A simpler way to word this would be, the Forward P/E is the P/E the company will sell at one year from now if they meet analyst projections.</p>
+                 <p className="py-2">The reason investors like the Forward P/E is because the stock market tends to be forward looking, which means investors are looking to the future to make decisions, and not so much the past. Investors do their best to guess where a company will be in the future, and using a Forward P/E helps them understand whether or not today's price is attractive relative to where the company could be in a year from now.</p>
+                 <p className="py-2">The problem with the Forward P/E is that it is in fact based on analyst expectations of the future, and no one knows for sure what the future holds. Anything can happen, and businesses can change quickly. Investors should understand this when using Forward multiples and be careful not to over estimate a company's future.</p>
+                 
+                </label>
+              </label> 
+            </div>
+            {stock.ForwardPE? (
+            <p className="pl-3">{stock.ForwardPE}</p>
+            ) : null}
         </div>
-        </div>
+        
+      </div>
+    </div>
   )
 }
 

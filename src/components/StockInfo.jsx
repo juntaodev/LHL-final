@@ -175,7 +175,7 @@ const StockKeyValue = () => {
             ) : null}
           </div>
 
-           {/* FiscalYearEnd */}
+          {/* FiscalYearEnd */}
           <div>
             <div className="text-gray-600 text-md">
               {/* The button to open modal */}
@@ -193,12 +193,12 @@ const StockKeyValue = () => {
                 </label>
               </label>              
             </div>
-            {stockInfo.FiscalYearEnd ? (
+            {stockInfo.FiscalYearEnd? (
             <p className="pl-3">{stockInfo.FiscalYearEnd}</p>
             ) : null}
           </div>
 
-           {/* LatestQuarter */}
+          {/* LatestQuarter */}
           <div>
             <div className="text-gray-600 text-md">
               {/* The button to open modal */}
@@ -221,7 +221,7 @@ const StockKeyValue = () => {
             ) : null}
           </div>
 
-           {/* DividendPerShare */}
+          {/* DividendPerShare */}
           <div>
             <div className="text-gray-600 text-md">
               {/* The button to open modal */}

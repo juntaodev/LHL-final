@@ -14,7 +14,7 @@ const Navbar = () => {
       </div>
       <div className="flex-1">
         <Link to="/">
-          <div className="btn btn-ghost normal-case text-xl">Screener</div>
+          <div className="btn btn-ghost normal-case text-xl">STOCK 101</div>
         </Link>
       <div className="flex-none">
     <button className="btn btn-square btn-ghost">

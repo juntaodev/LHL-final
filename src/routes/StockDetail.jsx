@@ -39,16 +39,19 @@ function StockDetail() {
   if (error) return <p>An error occurred: {error.message}</p>;
 
   return (
-    <div className="rounded-div h-[1080px]">
+    <div className="max-w-[1280px] w-full mx-auto pt-2 h-screen">
       <div>
         <StockHeader />
       </div>
-      <div className="flex">
-        
+
+      <div className="divider"></div>
+
+      <div>
         <StockOverview />
       </div>
-      <h2>Company LOGO</h2>
-      <img className="mask mask-circle"  src={data} alt="company logo"/>
+
+      {/* <h2>Company LOGO</h2>
+      <img className="mask mask-circle"  src={data} alt="company logo"/> */}
       
 
       

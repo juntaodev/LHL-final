@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import { Input } from "@material-tailwind/react";
+
 
 const StockSearch = () => {
   const [inputValue, setInputValue] = useState("");
@@ -19,31 +19,45 @@ const StockSearch = () => {
     }
   }
 
-  const fetchResults = async () => {
-    const options = {
-      method: 'GET',
-      url: 'https://twelve-data1.p.rapidapi.com/symbol_search',
-      params: { symbol: inputValue, outputsize: '2' },
-      headers: {
-        'X-RapidAPI-Key': '3739bf6e15msh3f361324e7ae496p1291a4jsneeac436b4fc4',
-        'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
-      }
-    };
+  // const fetchResults = async () => {
 
-    axios.request(options).then((response) => {
-      setSearchResults(response.data.data);
-      setShowResults(true);
-	    console.log('searchResults', searchResults);
-      console.log('showResults', showResults);
-    }).catch(function (error) {
-	    console.error(error);
-      setError(error);
-    });
-  }
+  //   const API_KEY = 'CW78WPZZAQ61P2ZU';
+  //   const url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${inputValue}&apikey=${API_KEY}`;
+
+    
+    
+  //   axios.request(url).then((response) => {
+  //     setSearchResults(response.data.data);
+  //     setShowResults(true);
+	//     console.log('searchResults', searchResults);
+  //     console.log('showResults', showResults);
+  //   }).catch(function (error) {
+	//     console.error(error);
+  //     setError(error);
+  //   });
+  // } 
+  
+    
+
+    async function fetchData() {
+
+      const API_KEY = 'KJEJ4ZQQOGDC75P4';
+      const url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${inputValue}&apikey=${API_KEY}`;
+
+      try {
+        const response = await axios.get(url);
+        setSearchResults(response.data.bestMatches[0]);
+        setShowResults(true);
+        console.log("stock", response.data.bestMatches[0]);
+      } catch (error) {
+        console.error(error);
+        setError(error);
+      }
+    }
       
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetchResults();
+    fetchData();
   };
 
   const handleBlur = () => {
@@ -63,13 +77,13 @@ const StockSearch = () => {
     <div className="rounded-div p-4">
       <form onSubmit={handleSubmit}>
       
-      <Input 
-        label="Search stocks by ticker symbol or company name" 
+      <input 
         type="text" 
+        placeholder="Search stocks by ticker symbol or company name"   
+        className="input input-ghost w-full" 
         value={inputValue} 
         onChange={handleInputChange} 
         onKeyPress={handleKeyPress} 
-        // onBlur={handleBlur}
       />
       
       </form>
@@ -78,17 +92,17 @@ const StockSearch = () => {
       
       
       {showResults && (
-        <ul>
-          {searchResults.map((result) => (
+      
+          
             
-              <li key={result.exchange}>
-                <Link to={`/stock/${result.symbol}`}>
-                {result.symbol} - {result.instrument_name} - {result.exchange}
-                </Link>
-              </li>
+              
+        <Link to={`/stock/${searchResults["1. symbol"]}`}>
+        <p>{searchResults["1. symbol"]} - {searchResults["2. name"]}</p>
+          </Link>
+              
             
-          ))}
-        </ul>
+          
+        
       )}
     </div>
       

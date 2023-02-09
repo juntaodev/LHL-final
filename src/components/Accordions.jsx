@@ -38,8 +38,8 @@ const Accordions = () => {
       {/* <>IF YOU ARE NEW TO STOCK, PLEASE CHECK BELOW.</> */}
     <Fragment>
       {/* basic accordion*/}
-      <Accordion open={open === 1} >
-        <AccordionHeader onClick={() => handleOpen(1)} className="mt-4 px-2 py-2">
+      <Accordion open={open === 1} className="mt-4">
+        <AccordionHeader onClick={() => handleOpen(1)} className="p-2">
            <strong>Basic</strong> 
         </AccordionHeader>
         <AccordionBody className="px-4">
@@ -50,7 +50,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(1)}>
               <strong><p> 1. What is stock?</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4">
+            <AccordionBody className="px-4 py-2">
              <p>A stock, also known as equity, represents a piece of ownership in a company. Units of stock are called “shares”. When you purchase a stock, you are essentially buying a small portion of the company and becoming a shareholder. As the company grows and becomes more valuable, the value of your stock also increases, and you may be able to sell it for a profit.</p>
              <br/>
              <p>Imagine that your friend owns a bubble tea booth, but he only has $1,000 to start. In order to buy the necessary supplies (e.g., cups, icing, tea), he might raise money from friends and family. Let’s pretend that you fund his business $1,000, so he now has $2,000 total and he’s able to get the business off the ground. In exchange for your investment, he might agree to give you 50% of the business and its profits, but you would also participate in any losses the business may take. So, one year later, assuming the business is going really well and earns $1000 in profit. The bubble tea booth now is worth $3000 and your 50% stake in the business turns into $1500. Or, one year later, the business is struggling, which costs $1000 in total. The bubble tea booth now is worth $1000 and your 50% shrinks into $500. This is kind of how stocks work, except on a much larger level.</p>
@@ -139,8 +139,8 @@ const Accordions = () => {
       </Accordion>
 
       {/* intermediate accordion*/}
-      <Accordion open={open === 2} >
-        <AccordionHeader onClick={() => handleOpen(2)} className="my-2 px-2">
+      <Accordion open={open === 2} className="mt-4">
+        <AccordionHeader onClick={() => handleOpen(2)} className="p-2">
           <strong><p>Intermediate</p></strong>
         </AccordionHeader>
         <AccordionBody className="px-4">
@@ -258,11 +258,11 @@ const Accordions = () => {
         </AccordionBody>
       </Accordion>
 
-      <Accordion open={open === 3} >
-        <AccordionHeader onClick={() => handleOpen(3)} className="mt-2 mb-4 px-2">
+      <Accordion open={open === 3} className="my-4">
+        <AccordionHeader onClick={() => handleOpen(3)} className="p-2">
           <strong><p>Advanced</p></strong>
         </AccordionHeader>
-        <AccordionBody>
+        <AccordionBody className="px-4">
           We&apos;re not always in the position that we want to be at.
           We&apos;re constantly growing. We&apos;re constantly making mistakes.
           We&apos;re constantly trying to express ourselves and actualize our
