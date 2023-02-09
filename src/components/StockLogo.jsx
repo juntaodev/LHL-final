@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
-import StockOverview from '../components/StockOverview';
-import StockHeader from '../components/StockHeader';
 
-function StockDetail() {
-  const [data, setData] = useState({});
+
+function StockLogo() {
+  const [stockLogo, setStockLogo] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -25,9 +24,9 @@ function StockDetail() {
     axios
       .request(options)
       .then(response => {
-        setData(response.data.url);
+        setStockLogo(response.data.url);
         setLoading(false);
-        console.log("imgurl", response.data)
+        console.log("Logo", response.data)
       })
       .catch(error => {
         setError(error);
@@ -35,27 +34,21 @@ function StockDetail() {
       });
   }, [param.stockSymbol]);
 
-  if (loading) return <p>Loading...</p>;
+  if (!stockLogo) {
+    return <div>Loading...</div>;
+  }
   if (error) return <p>An error occurred: {error.message}</p>;
-
+  
   return (
-    <div className="max-w-[1280px] w-full mx-auto pt-2 pb-4 h-100%">
-      <div>
-        <StockHeader />
+    
+      
+      <div className="avatar">
+        <div className="w-24 rounded">
+          <img src={stockLogo} alt="company log"/>
+        </div>
       </div>
-
-      <div className="divider"></div>
-
-      <div>
-        <StockOverview />
-      </div>
-
-      
-      
-
-      
-    </div>
-  );
+    
+  )
 }
 
-export default StockDetail;
+export default StockLogo
