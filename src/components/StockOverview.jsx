@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useParams } from "react-router-dom";
+import React from 'react';
+
 import StockKeyValue from './StockKeyValue';
 import StockInfo from './StockInfo';
 import StockFinancials from './StockFinancials';
 import StockTrade from './StockTrade';
+import CompanyInfo from './CompanyInfo';
 
 function StockOverview() {
   
@@ -39,6 +39,11 @@ function StockOverview() {
         <StockInfo />
         
       </div>
+
+      <div className="divider"></div> 
+
+        {/* bottom layout */}
+        <CompanyInfo />
 
     </div>
   );

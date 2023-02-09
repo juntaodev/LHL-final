@@ -40,8 +40,8 @@ function StockPrice() {
   if (error) return <p>An error occurred: {error.message}</p>;
   
   return (
-    <div className="py-2">
-      <p className='text-2xl font-bold text-gray-700 '>${Number(stockPrice).toFixed(2)}</p>
+    <div className="py-2 card bg-base-200">
+      <p className='text-2xl font-bold text-gray-700 px-2'>${Number(stockPrice).toFixed(2)}</p>
     </div>
   )
 }
