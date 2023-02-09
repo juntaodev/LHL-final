@@ -67,11 +67,10 @@ const StockKeyValue = () => {
   
   return (
     <div className="grid flex-grow card bg-base-200 rounded-box place-items-center ">
-        {/* about section */}
-        <div className=''>
-          <p><strong>About </strong></p> 
-        </div>
-        <div className="grid grid-cols-3 p-4 gap-4">
+         
+      <p className='card pt-4 '><strong>About </strong></p> 
+        
+      <div className="grid grid-cols-3 p-4 gap-4">
 
           {/* sector */}
           <div>
@@ -195,7 +194,7 @@ const StockKeyValue = () => {
             </div>
             {stockInfo.FiscalYearEnd? (
             <p className="pl-3">{stockInfo.FiscalYearEnd}</p>
-            ) : null}
+            ) : <p className="pl-3">--</p>}
           </div>
 
           {/* LatestQuarter */}
@@ -218,7 +217,7 @@ const StockKeyValue = () => {
             </div>
             {stockInfo.LatestQuarter ? (
             <p className="pl-3">{stockInfo.LatestQuarter}</p>
-            ) : null}
+            ) : <p className="pl-3">--</p>}
           </div>
 
           {/* DividendPerShare */}
@@ -268,7 +267,7 @@ const StockKeyValue = () => {
           <div>
             <div className="text-gray-600 text-md">
               {/* The button to open modal */}
-              <label htmlFor="ExDividendDate" className="btn btn-sm btn-ghost text-left">ExDividend Date</label>
+              <label htmlFor="ExDividendDate" className="btn btn-sm btn-ghost text-left">Ex-Dividend Date</label>
 
               {/* Put this part before </body> tag */}
               <input type="checkbox" id="ExDividendDate" className="modal-toggle" />
@@ -282,11 +281,11 @@ const StockKeyValue = () => {
             </div>
             {stockInfo.ExDividendDate ? (
             <p className="pl-3">{stockInfo.ExDividendDate}</p>
-            ) : "--"}
+            ) : <p className="pl-3">--</p>}
           </div>
 
 
-        </div>
+      </div>
     </div>
   )
 }
