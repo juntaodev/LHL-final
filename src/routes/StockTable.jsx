@@ -12,7 +12,7 @@ const StockTable = () => {
 
 
   const API_KEY = 'KJEJ4ZQQOGDC75P4';
-  const url = `https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=AAPL&apikey=${API_KEY}`;
+  const url = `https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=META&apikey=${API_KEY}`;
 
   useEffect(() => {
     setLoading(true);
@@ -21,7 +21,7 @@ const StockTable = () => {
         const response = await axios.get(url);
         setStockIncome(response.data);
         setLoading(false);
-        console.log("keyvalue", response.data);
+        // console.log("keyvalue", response.data);
       } catch (error) {
         setError(error);
       }
@@ -36,10 +36,10 @@ const StockTable = () => {
   if (error) return <p>An error occurred: {error.message}</p>;
 
   const yearList = stockIncome.annualReports.map((annualReport) => {
-    console.log(typeof(annualReport.fiscalDateEnding));
+    // console.log(typeof(annualReport.fiscalDateEnding));
     return annualReport
   })
-  console.log(yearList)
+  // console.log(yearList)
 
   return (
     <div>

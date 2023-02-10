@@ -192,8 +192,8 @@ const StockKeyValue = () => {
                 </label>
               </label>              
             </div>
-            {stockInfo.FiscalYearEnd? (
-            <p className="pl-3">{stockInfo.FiscalYearEnd}</p>
+            {stockInfo?.FiscalYearEnd? (
+            <p className="pl-3">{stockInfo?.FiscalYearEnd}</p>
             ) : <p className="pl-3">--</p>}
           </div>
 
@@ -215,8 +215,8 @@ const StockKeyValue = () => {
                 </label>
               </label>              
             </div>
-            {stockInfo.LatestQuarter ? (
-            <p className="pl-3">{stockInfo.LatestQuarter}</p>
+            {stockInfo?.LatestQuarter ? (
+            <p className="pl-3">{stockInfo?.LatestQuarter}</p>
             ) : <p className="pl-3">--</p>}
           </div>
 
@@ -237,8 +237,8 @@ const StockKeyValue = () => {
                 </label>
               </label>              
             </div>
-            {stockInfo.DividendPerShare !== "0" ? (
-            <p className="pl-3">${stockInfo.DividendPerShare}</p>
+            {stockInfo?.DividendPerShare !== "0" ? (
+            <p className="pl-3">${stockInfo?.DividendPerShare}</p>
             ) : <p className="pl-3">--</p>}
           </div>
 
@@ -258,8 +258,8 @@ const StockKeyValue = () => {
                 </label>
               </label>              
             </div>
-            {stockInfo.DividendYield !== "0" ? (
-            <p className="pl-3">{decToPercentage(stockInfo.DividendYield)}</p>
+            {stockInfo?.DividendYield !== "0" ? (
+            <p className="pl-3">{decToPercentage(stockInfo?.DividendYield)}</p>
             ) : <p className="pl-3">--</p>}
           </div>
 
@@ -279,8 +279,8 @@ const StockKeyValue = () => {
                 </label>
               </label>              
             </div>
-            {stockInfo.ExDividendDate ? (
-            <p className="pl-3">{stockInfo.ExDividendDate}</p>
+            {stockInfo?.ExDividendDate ? (
+            <p className="pl-3">{stockInfo?.ExDividendDate}</p>
             ) : <p className="pl-3">--</p>}
           </div>
 

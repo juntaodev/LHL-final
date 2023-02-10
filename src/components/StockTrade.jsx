@@ -67,8 +67,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stockQuote.previous_close? (
-            <p className="pl-3">${decimalCut(stockQuote.previous_close)}</p>
+            {stockQuote?.previous_close? (
+            <p className="pl-3">${decimalCut(stockQuote?.previous_close)}</p>
             ) : null}
           </div>
 
@@ -86,8 +86,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stockQuote.open? (
-            <p className="pl-3">${decimalCut(stockQuote.open)}</p>
+            {stockQuote?.open? (
+            <p className="pl-3">${decimalCut(stockQuote?.open)}</p>
             ) : null}
           </div>
 
@@ -105,8 +105,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stockQuote.close? (
-            <p className="pl-3">${decimalCut(stockQuote.close)}</p>
+            {stockQuote?.close? (
+            <p className="pl-3">${decimalCut(stockQuote?.close)}</p>
             ) : null}
           </div>
 
@@ -124,8 +124,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stockQuote.high? (
-            <p className="pl-3">${decimalCut(stockQuote.high)}</p>
+            {stockQuote?.high? (
+            <p className="pl-3">${decimalCut(stockQuote?.high)}</p>
             ) : null}
           </div>
 
@@ -143,8 +143,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stockQuote.low? (
-            <p className="pl-3">${decimalCut(stockQuote.low)}</p>
+            {stockQuote?.low? (
+            <p className="pl-3">${decimalCut(stockQuote?.low)}</p>
             ) : null}
           </div>
 
@@ -164,8 +164,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stockQuote.volume? (
-            <p className="pl-3">{stockQuote.volume}</p>
+            {stockQuote?.volume? (
+            <p className="pl-3">{stockQuote?.volume}</p>
             ) : null}
           </div>
 
@@ -183,8 +183,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stockQuote.fifty_two_week.high? (
-            <p className="pl-3">${decimalCut(stockQuote.fifty_two_week.high)}</p>
+            {stockQuote?.fifty_two_week?.high? (
+            <p className="pl-3">${decimalCut(stockQuote?.fifty_two_week?.high)}</p>
             ) : null}
           </div>
 
@@ -202,8 +202,9 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stockQuote.fifty_two_week.low? (
-            <p className="pl-3">${decimalCut(stockQuote.fifty_two_week.low)}</p>
+            {stockQuote?.fifty_two_week?.low? (
+            <p className="pl-3">${decimalCut(stockQuote?.fifty_two_week?.low)}</p>
+
             ) : null}
           </div>
 
@@ -227,8 +228,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stockQuote.average_volume ? (
-            <p className="pl-3">{stockQuote.average_volume}</p>
+            {stockQuote?.average_volume ? (
+            <p className="pl-3">{stockQuote?.average_volume}</p>
             ) : null}
           </div>
 

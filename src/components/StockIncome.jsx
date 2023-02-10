@@ -9,6 +9,7 @@ const StockIncome = () => {
   const [error, setError] = useState(null);
 
   const param = useParams();
+  console.log(param)
 
   const API_KEY = 'KJEJ4ZQQOGDC75P4';
   const url = `https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=${param.stockSymbol}&apikey=${API_KEY}`;
@@ -29,10 +30,12 @@ const StockIncome = () => {
     fetchData();
   }, [url]);
 
-  const yearList = stockIncome.annualReports.map((annualReport) => {
+  const yearList = stockIncome?.annualReports.map((annualReport) => {
     console.log(typeof(annualReport.fiscalDateEnding));
     return annualReport
   })
+  // console.log(stockIncome.annualReport);
+  // console.log(stockIncome);
 
   if (!stockIncome) {
     return <div>Loading...</div>;
