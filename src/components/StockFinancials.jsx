@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const StockFinancials = () => {
   const [stock, setstock] = useState(null);
@@ -63,8 +64,10 @@ const StockFinancials = () => {
   
   return (
     <div className="grid flex-grow card bg-pink-50 rounded-box place-items-center">
-      <p className='card pt-4 '><strong>Financials</strong></p> 
-      <div className="grid grid-cols-3 p-4 gap-4">
+      <Link to={`/stock/${param.stockSymbol}/documents`} className="pt-2">
+        <div className='btn btn-ghost normal-case text-lg'>Financials</div>
+      </Link > 
+      <div className="grid grid-cols-3 p-4 pt-0 gap-4">
 
         {/* Gross Profit */}
         <div>
