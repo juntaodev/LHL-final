@@ -5,10 +5,16 @@ import StockCashflow from '../components/StockCashflow';
 
 const StockDocuments = () => {
   return (
-    <div>
+    <div className='max-w-[1280px] w-full mx-auto pb-8 h-100%'>
       <StockIncome />
-      {/* <StockBalance />
-      <StockCashflow /> */}
+
+      <div className="divider"></div>
+
+      {/* <StockBalance /> */}
+
+      <div className="divider"></div>
+
+      <StockCashflow />
     </div>
   )
 }
