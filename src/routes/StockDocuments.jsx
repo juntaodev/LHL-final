@@ -10,7 +10,7 @@ const StockDocuments = () => {
 
       <div className="divider"></div>
 
-      {/* <StockBalance /> */}
+      <StockBalance />
 
       <div className="divider"></div>
 

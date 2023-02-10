@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import { NumericFormat } from 'react-number-format';
 
 const StockIncome = () => {
 
@@ -34,6 +35,10 @@ const StockIncome = () => {
     console.log(typeof(annualReport.fiscalDateEnding));
     return annualReport
   })
+
+  const showInThousands = (input) => {
+    return Number(input) / 1000
+  }
   // console.log(stockIncome.annualReport);
   // console.log(stockIncome);
 
@@ -52,71 +57,71 @@ const StockIncome = () => {
       <table className="table w-full">
         <thead>
           <tr>
-            <th>{stockIncome.symbol}</th>
+            <th>{stockIncome.symbol} (* number shown in thousands)</th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding}>{element.fiscalDateEnding.slice(0,4)}</th>
+              return <th key={element.fiscalDateEnding} className="text-lg text-primary">{element.fiscalDateEnding.slice(0,4)}</th>
             })}
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>Total Revenue</th>
+          <tr className="hover text-md text-secondary">
+            <th className='font-normal'>Total Revenue</th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding}>{element.totalRevenue}</th>
+              return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.totalRevenue)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
-          <tr>
-            <th>Cost of Revenue</th>
+          <tr className="hover text-md text-secondary">
+            <th className='font-normal'>Cost of Revenue</th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding}>{element.costOfRevenue}</th>
+              return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.costOfRevenue)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr> 
-          <tr>
-            <th>Gross Profit</th>
+          <tr className="hover text-md text-secondary">
+            <th className='font-normal'>Gross Profit</th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding}>{element.grossProfit}</th>
+              return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.grossProfit)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
-          <tr>
-            <th>Operating Expenses</th>
+          <tr className="hover text-md text-secondary">
+            <th className='font-normal'>Operating Expenses</th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding}>{element.operatingExpenses}</th>
+              return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.operatingExpenses)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
-          <tr>
-            <th>Operating Income</th>
+          <tr className="hover text-md text-secondary">
+            <th className='font-normal'>Operating Income</th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding}>{element.operatingIncome}</th>
+              return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.operatingIncome)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
-          <tr>
-            <th>Other Non-Operating Income</th>
+          <tr className="hover text-md text-secondary">
+            <th className='font-normal'>Other Non-Operating Income</th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding}>{element.otherNonOperatingIncome}</th>
+              return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.otherNonOperatingIncome)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
-          <tr>
-            <th>Income Before Tax</th>
+          <tr className="hover text-md text-secondary">
+            <th className='font-normal'>Income Before Tax</th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding}>{element.incomeBeforeTax}</th>
+              return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.incomeBeforeTax)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
-          <tr>
-            <th>Income Tax Expense</th>
+          <tr className="hover text-md text-secondary">
+            <th className='font-normal'>Income Tax Expense</th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding}>{element.incomeTaxExpense}</th>
+              return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.incomeTaxExpense)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
-          <tr>
-            <th>Net Income</th>
+          <tr className="hover text-md text-secondary">
+            <th className='font-normal'>Net Income</th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding}>{element.netIncome}</th>
+              return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.netIncome)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
-          <tr>
-            <th>EBITDA</th>
+          <tr className="hover text-md text-secondary">
+            <th className='font-normal'>EBITDA</th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding}>{element.ebitda}</th>
+              return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.ebitda)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
         </tbody>
