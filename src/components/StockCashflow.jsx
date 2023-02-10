@@ -62,7 +62,7 @@ const StockCashflow = () => {
           </thead>
           <tbody>
           <tr className="hover text-md text-secondary">
-            <th className='font-normal'>Cash from Operating Activities</th>
+            <th className='font-normal'>Cash From Operating Activities</th>
             {yearList.map((element) => {
               return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.operatingCashflow)} thousandSeparator="," displayType="text"/></th>
             })}
@@ -80,19 +80,19 @@ const StockCashflow = () => {
             })}
           </tr>
           <tr className="hover text-md text-secondary">
-            <th className='font-normal'>Cashf from Investing Activities</th>
+            <th className='font-normal'>Cash From Investing Activities</th>
             {yearList.map((element) => {
               return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.cashflowFromInvestment)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
           <tr className="hover text-md text-secondary">
-            <th className='font-normal'>Cashflow From Financing Activities</th>
+            <th className='font-normal'>Cash From Financing Activities</th>
             {yearList.map((element) => {
               return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.cashflowFromFinancing)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
           <tr className="hover text-md text-secondary">
-            <th className='font-normal'>Debt repayment</th>
+            <th className='font-normal'>Debt Repayment</th>
             {yearList.map((element) => {
               return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.proceedsFromRepaymentsOfShortTermDebt)} thousandSeparator="," displayType="text"/></th>
             })}
@@ -104,7 +104,7 @@ const StockCashflow = () => {
             })}
           </tr>
           <tr className="hover text-md text-secondary">
-            <th className='font-normal'>Change In Cash And CashEquivalents</th>
+            <th className='font-normal'>Change In Cash And Cash Equivalents</th>
             {yearList.map((element) => {
               return <th key={element.fiscalDateEnding} className='font-normal'><NumericFormat value={showInThousands(element.changeInCashAndCashEquivalents)} thousandSeparator="," displayType="text"/></th>
             })}
