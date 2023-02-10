@@ -90,8 +90,8 @@ const StockFinancials = () => {
                 </label>
               </label> 
             </div>
-            {stock.GrossProfitTTM? (
-            <p className="pl-3">${intToString(stock.GrossProfitTTM)}</p>
+            {stock?.GrossProfitTTM? (
+            <p className="pl-3">${intToString(stock?.GrossProfitTTM)}</p>
             ) : null}
         </div>
 
@@ -112,8 +112,8 @@ const StockFinancials = () => {
                 </label>
               </label> 
             </div>
-            {stock.GrossProfitTTM? (
-            <p className="pl-3">{decToPercentage(stock.GrossProfitTTM / stock.RevenueTTM)}</p>
+            {stock?.GrossProfitTTM? (
+            <p className="pl-3">{decToPercentage(stock?.GrossProfitTTM / stock?.RevenueTTM)}</p>
             ) : null}
         </div>
         
@@ -137,8 +137,8 @@ const StockFinancials = () => {
                 </label>
               </label> 
             </div>
-            {stock.OperatingMarginTTM? (
-            <p className="pl-3">{decToPercentage(stock.OperatingMarginTTM)}</p>
+            {stock?.OperatingMarginTTM? (
+            <p className="pl-3">{decToPercentage(stock?.OperatingMarginTTM)}</p>
             ) : null}
         </div>
         
@@ -164,8 +164,8 @@ const StockFinancials = () => {
                 </label>
               </label> 
             </div>
-            {stock.RevenuePerShareTTM? (
-            <p className="pl-3">{decToPercentage(stock.EPS / stock.RevenuePerShareTTM)}</p>
+            {stock?.RevenuePerShareTTM? (
+            <p className="pl-3">{decToPercentage(stock?.EPS / stock?.RevenuePerShareTTM)}</p>
             ) : null}
         </div>
 
@@ -191,8 +191,8 @@ const StockFinancials = () => {
                 </label>
               </label> 
             </div>
-            {stock.ReturnOnAssetsTTM? (
-            <p className="pl-3">{decToPercentage(stock.ReturnOnAssetsTTM)}</p>
+            {stock?.ReturnOnAssetsTTM? (
+            <p className="pl-3">{decToPercentage(stock?.ReturnOnAssetsTTM)}</p>
             ) : null}
         </div>
 
@@ -216,8 +216,8 @@ const StockFinancials = () => {
                 </label>
               </label> 
             </div>
-            {stock.ReturnOnEquityTTM ? (
-            <p className="pl-3">{Number(stock.ReturnOnEquityTTM).toFixed(2)}%</p>
+            {stock?.ReturnOnEquityTTM ? (
+            <p className="pl-3">{Number(stock?.ReturnOnEquityTTM).toFixed(2)}%</p>
             ) : null}
         </div>
 
@@ -241,8 +241,8 @@ const StockFinancials = () => {
                 </label>
               </label> 
             </div>
-            {stock.QuarterlyRevenueGrowthYOY? (
-            <p className="pl-3">{ decToPercentage(stock.QuarterlyRevenueGrowthYOY)}</p>
+            {stock?.QuarterlyRevenueGrowthYOY? (
+            <p className="pl-3">{ decToPercentage(stock?.QuarterlyRevenueGrowthYOY)}</p>
             ) : null}
         </div>
 
@@ -266,8 +266,8 @@ const StockFinancials = () => {
                 </label>
               </label> 
             </div>
-            {stock.QuarterlyEarningsGrowthYOY? (
-            <p className="pl-3">{decToPercentage(stock.QuarterlyEarningsGrowthYOY)}</p>
+            {stock?.QuarterlyEarningsGrowthYOY? (
+            <p className="pl-3">{decToPercentage(stock?.QuarterlyEarningsGrowthYOY)}</p>
             ) : null}
         </div>
 
@@ -292,8 +292,8 @@ const StockFinancials = () => {
                 </label>
               </label> 
             </div>
-            {stock.PEGRatio? (
-            <p className="pl-3">{stock.PEGRatio}</p>
+            {stock?.PEGRatio? (
+            <p className="pl-3">{stock?.PEGRatio}</p>
             ) : null}
         </div>
         

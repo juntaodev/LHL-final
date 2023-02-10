@@ -80,8 +80,8 @@ const StockKeyValue = () => {
                 </label>
               </label>              
           </div>
-          {stock.MarketCapitalization? (
-          <p className="pl-3">${intToString(stock.MarketCapitalization)}</p>
+          {stock?.MarketCapitalization? (
+          <p className="pl-3">${intToString(stock?.MarketCapitalization)}</p>
           ) : null}
         </div>
         
@@ -101,8 +101,8 @@ const StockKeyValue = () => {
                 </label>
               </label>        
           </div>
-          {stock.SharesOutstanding? (
-          <p className="pl-3">{intToString(stock.SharesOutstanding)}</p>
+          {stock?.SharesOutstanding? (
+          <p className="pl-3">{intToString(stock?.SharesOutstanding)}</p>
           ) : null}
         </div>
         
@@ -125,8 +125,8 @@ const StockKeyValue = () => {
                 </label>
               </label>   
             </div>
-            {stock.EPS? (
-            <p className="pl-3">${Number(stock.EPS).toFixed(2)}</p>
+            {stock?.EPS? (
+            <p className="pl-3">${Number(stock?.EPS).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -150,8 +150,8 @@ const StockKeyValue = () => {
                 </label>
               </label>   
             </div>
-            {stock.PERatio? (
-            <p className="pl-3">{Number(stock.PERatio).toFixed(2)}</p>
+            {stock?.PERatio? (
+            <p className="pl-3">{Number(stock?.PERatio).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -174,8 +174,8 @@ const StockKeyValue = () => {
                 </label>
               </label>  
             </div>
-            {stock.RevenueTTM? (
-            <p className="pl-3">${intToString(stock.RevenueTTM)}</p>
+            {stock?.RevenueTTM? (
+            <p className="pl-3">${intToString(stock?.RevenueTTM)}</p>
             ) : null}
         </div>
         
@@ -199,8 +199,8 @@ const StockKeyValue = () => {
                 </label>
               </label>  
             </div>
-            {stock.PriceToSalesRatioTTM? (
-            <p className="pl-3">{Number(stock.PriceToSalesRatioTTM).toFixed(2)}</p>
+            {stock?.PriceToSalesRatioTTM? (
+            <p className="pl-3">{Number(stock?.PriceToSalesRatioTTM).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -224,8 +224,8 @@ const StockKeyValue = () => {
                 </label>
               </label>  
             </div>
-            {stock.BookValue? (
-            <p className="pl-3">${Number(stock.BookValue).toFixed(2)}</p>
+            {stock?.BookValue? (
+            <p className="pl-3">${Number(stock?.BookValue).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -249,8 +249,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stock.PriceToBookRatio? (
-            <p className="pl-3">{Number(stock.PriceToBookRatio).toFixed(2)}</p>
+            {stock?.PriceToBookRatio? (
+            <p className="pl-3">{Number(stock?.PriceToBookRatio).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -274,8 +274,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stock.EBITDA? (
-            <p className="pl-3">${intToString(stock.EBITDA)}</p>
+            {stock?.EBITDA? (
+            <p className="pl-3">${intToString(stock?.EBITDA)}</p>
             ) : null}
         </div>
 
@@ -299,8 +299,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stock.EVToEBITDA? (
-            <p className="pl-3">{stock.EVToEBITDA}</p>
+            {stock?.EVToEBITDA? (
+            <p className="pl-3">{stock?.EVToEBITDA}</p>
             ) : null}
         </div>
 
@@ -324,8 +324,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stock.EVToRevenue? (
-            <p className="pl-3">{stock.EVToRevenue}</p>
+            {stock?.EVToRevenue? (
+            <p className="pl-3">{stock?.EVToRevenue}</p>
             ) : null}
         </div>
 
@@ -348,8 +348,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stock.ForwardPE? (
-            <p className="pl-3">{stock.ForwardPE}</p>
+            {stock?.ForwardPE? (
+            <p className="pl-3">{stock?.ForwardPE}</p>
             ) : null}
         </div>
         
