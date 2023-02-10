@@ -7,8 +7,8 @@ const StockDocuments = () => {
   return (
     <div>
       <StockIncome />
-      <StockBalance />
-      <StockCashflow />
+      {/* <StockBalance />
+      <StockCashflow /> */}
     </div>
   )
 }
