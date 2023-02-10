@@ -42,11 +42,11 @@ function StockLogo() {
   return (
     
       
-      <div className="avatar">
+      // <div className="avatar">
         <div className="w-24 rounded">
-          <img src={stockLogo} alt="company log"/>
+          <img className='object-scale-down ' src={stockLogo} alt="company log"/>
         </div>
-      </div>
+      // </div>
     
   )
 }
