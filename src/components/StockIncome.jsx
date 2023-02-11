@@ -53,7 +53,7 @@ const StockIncome = () => {
     {/* so total row number should be  11 (1 header row + 10 data rows)*/}
 
       {/* table header */}
-      <table class="table-auto w-full">
+      <table className="table-auto w-full">
        <thead>
           <tr>
             <th className="text-primary p-4 text-lg">

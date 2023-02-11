@@ -50,7 +50,7 @@ const StockCashflow = () => {
       {/* needed key from top to bottom : operatingCashflow,   */}
       {/* */}
 
-      <table class="table-auto w-full">
+      <table className="table-auto w-full">
        <thead>
           <tr>
             <th className="text-primary p-4 text-lg">
