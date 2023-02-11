@@ -22,7 +22,7 @@ const StockIncome = () => {
         const response = await axios.get(url);
         setStockIncome(response.data);
         setLoading(false);
-        console.log("income", response.data);
+        // console.log("income", response.data);
       } catch (error) {
         setError(error);
       }
@@ -32,15 +32,14 @@ const StockIncome = () => {
   }, [url]);
 
   const yearList = stockIncome?.annualReports.map((annualReport) => {
-    console.log(typeof(annualReport.fiscalDateEnding));
+    
     return annualReport
   })
 
   const showInThousands = (input) => {
     return Number(input) / 1000
   }
-  // console.log(stockIncome.annualReport);
-  // console.log(stockIncome);
+  
 
   if (!stockIncome) {
     return <div>Loading...</div>;
@@ -52,8 +51,34 @@ const StockIncome = () => {
     {/* need a 6 columns table, first column is key from API, other 5 columns are value from last 5 years*/}
     {/* needed key from top to bottom : totalRevenue, costOfRevenue, grossProfit, operatingExpenses, operatingIncome, otherNonOperatingIncome, incomeBeforeTax, , incomeTaxExpense, netIncome, ebitda*/}
     {/* so total row number should be  11 (1 header row + 10 data rows)*/}
-    {/* iterating over the  */}
-    <div className="overflow-x-auto">
+
+      {/* table header */}
+      <table class="table-auto w-full">
+       <thead>
+          <tr>
+            <th className="text-primary p-4 text-lg">
+              Income Statement
+              {/* The button to open modal */}
+              <label htmlFor="IncomeStatement" className="btn btn-xs btn-ghost btn-circle">?</label>
+
+              {/* Put this part before </body> tag */}
+              <input type="checkbox" id="IncomeStatement" className="modal-toggle" />
+              <label htmlFor="IncomeStatement" className="modal cursor-pointer font-normal text-left text-secondary text-base">
+                <label className="modal-box relative " htmlFor="">
+                  <p className="py-2">The income statement is one of 3 financial documents that company's file on a quarterly basis (once every 3 months) to update the public and investors about how the operations of the company are doing.</p>
+                  <p className="py-2">The income statement includes the amount of revenue the company is generating, how much expenses are to produce that revenue, gains on asset values (like stocks and properties), how much tax the company is paying, and how many shares the company has outstanding.</p>
+                  <p className="py-2">The goal of the income statement is to show investors how much revenue and value the company is producing for its shareholders. This is also the statement that shows a company's earnings (net income). Many investors in the market look at earnings to make decisions about the stock, and they use earnings in their valuation calculations.</p>
+                  <p className="py-2">The income statement has a lot of very important information that investors need to know and understand, and Stock Unlock's education mode will help explain everything on the income statement in detail so you can better know what to look for.</p>
+                  
+                </label>
+              </label> 
+            </th>
+          </tr>
+        </thead>      
+      </table>
+
+      {/* table */}
+      <div className="overflow-x-auto">
       <table className="table w-full">
         <thead>
           <tr>
@@ -128,7 +153,7 @@ const StockIncome = () => {
       </table>
       </div>
 
-  </div>
+    </div>
   )
 }
 
