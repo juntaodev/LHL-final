@@ -7,6 +7,7 @@ import Home from "./routes/Home";
 import StockDetail from "./routes/StockDetail";
 
 import StockDocuments from "./routes/StockDocuments";
+import StockEvaluation from "./routes/StockEvaluation";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/stock/:stockSymbol/documents" element={<StockDocuments />}>
             <Route path=":stockSymbol/documents" />
+          </Route> 
+          <Route path="/stock/:stockSymbol/evaluations" element={<StockEvaluation />}>
+            <Route path=":stockSymbol/evaluations" />
           </Route> 
         </Routes>
         <Footer />
