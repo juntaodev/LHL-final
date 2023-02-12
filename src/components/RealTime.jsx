@@ -24,7 +24,7 @@ const RealTime = () => {
 
   return (
     <div className='py-2'>
-    {date}{time}, {wish}
+      <p className='text-secondary'> {date}{time}, {wish}</p>
     </div>
   );
 };
