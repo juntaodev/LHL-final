@@ -28,7 +28,7 @@ const StockInfo = () => {
       .then(response => {
         setStockProfile(response.data);
         setLoading(false);
-        console.log("profile", response.data)
+        // console.log("profile", response.data);
       })
       .catch(error => {
         setError(error);
@@ -47,7 +47,7 @@ const StockInfo = () => {
         const response = await axios.get(url);
         setStockInfo(response.data);
         setLoading(false);
-        console.log("stockinfo", response.data);
+        // console.log("stockinfo", response.data);
       } catch (error) {
         setError(error);
       }
@@ -119,8 +119,8 @@ const StockInfo = () => {
                 </label>
               </label>              
             </div>
-            {stockProfile.sector? (
-            <p className="pl-3 text-secondary">{stockProfile.sector}</p>
+            {stockProfile?.sector? (
+            <p className="pl-3 text-secondary">{stockProfile?.sector}</p>
             ) : null}
           </div>
 
@@ -144,8 +144,8 @@ const StockInfo = () => {
                 </label>
               </label>              
             </div>
-            {stockProfile.industry? (
-            <p className="pl-3 text-secondary">{stockProfile.industry}</p>
+            {stockProfile?.industry? (
+            <p className="pl-3 text-secondary">{stockProfile?.industry}</p>
             ) : null}
           </div>
 
@@ -166,8 +166,8 @@ const StockInfo = () => {
                 </label>
               </label>              
             </div>
-            {stockProfile.exchange ? (
-            <p className="pl-3 text-secondary">{stockProfile.exchange}</p>
+            {stockProfile?.exchange ? (
+            <p className="pl-3 text-secondary">{stockProfile?.exchange}</p>
             ) : null}
           </div>
 
@@ -186,8 +186,8 @@ const StockInfo = () => {
                 </label>
               </label>              
             </div>
-            {stockProfile.employees? (
-            <p className="pl-3 text-secondary">{stockProfile.employees}</p>
+            {stockProfile?.employees? (
+            <p className="pl-3 text-secondary">{stockProfile?.employees}</p>
             ) : null}
           </div>
 

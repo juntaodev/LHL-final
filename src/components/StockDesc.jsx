@@ -25,7 +25,7 @@ const StockDesc = () => {
       .then(response => {
         setStockProfile(response.data);
         setLoading(false);
-        console.log("Logo", response.data)
+        // console.log("desc", response.data);
       })
       .catch(error => {
         setError(error);
@@ -54,7 +54,7 @@ const StockDesc = () => {
       
     
         
-    <p className='text-sm text-secondary'>{stockProfile.description}</p>
+    <p className='text-sm text-secondary'>{stockProfile?.description}</p>
         
     
     
