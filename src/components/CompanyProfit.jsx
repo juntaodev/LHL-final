@@ -12,8 +12,8 @@ const CompanyProfit = () => {
   const param = useParams();
 
   const API_KEY = 'KJEJ4ZQQOGDC75P4';
-  const incomeUrl = `https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=AAPL&apikey=${API_KEY}`;
-  const cashUrl = `https://www.alphavantage.co/query?function=CASH_FLOW&symbol=AAPL&apikey=${API_KEY}`;
+  const incomeUrl = `https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=${param.stockSymbol}&apikey=${API_KEY}`;
+  const cashUrl = `https://www.alphavantage.co/query?function=CASH_FLOW&symbol=${param.stockSymbol}&apikey=${API_KEY}`;
 
   useEffect(() => {
     setLoading(true);
@@ -59,17 +59,17 @@ const CompanyProfit = () => {
   if (error) return <p>An error occurred: {error.message}</p>;
   
   // key variables
-  const latestFiscalYear = stockIncome?.annualReports[0].fiscalDateEnding.slice(0,4);
+  const latestFiscalYear = stockIncome?.annualReports[0]?.fiscalDateEnding.slice(0,4);
 
-  const grossMargin = stockIncome?.annualReports[0].grossProfit / stockIncome?.annualReports[0].totalRevenue;
+  const grossMargin = stockIncome?.annualReports[0]?.grossProfit / stockIncome?.annualReports[0]?.totalRevenue;
  
-  const operatingMargin = stockIncome?.annualReports[0].grossProfit / stockIncome?.annualReports[0].totalRevenue;
+  const operatingMargin = stockIncome?.annualReports[0]?.grossProfit / stockIncome?.annualReports[0]?.totalRevenue;
   
-  const netMargin = stockIncome?.annualReports[0].netIncome / stockIncome?.annualReports[0].totalRevenue;
+  const netMargin = stockIncome?.annualReports[0]?.netIncome / stockIncome?.annualReports[0]?.totalRevenue;
   
-  const freeCashflowMargin = (stockCash?.annualReports[0].operatingCashflow - stockCash?.annualReports[0].capitalExpenditures) / stockIncome?.annualReports[0].totalRevenue;
+  const freeCashflowMargin = (stockCash?.annualReports[0]?.operatingCashflow - stockCash?.annualReports[0]?.capitalExpenditures) / stockIncome?.annualReports[0]?.totalRevenue;
   
-  const cashConversion = (stockCash?.annualReports[0].operatingCashflow - stockCash?.annualReports[0].capitalExpenditures) / stockIncome?.annualReports[0].netIncome;
+  const cashConversion = (stockCash?.annualReports[0]?.operatingCashflow - stockCash?.annualReports[0]?.capitalExpenditures) / stockIncome?.annualReports[0]?.netIncome;
 
   return (
     <div className='profit-table'>

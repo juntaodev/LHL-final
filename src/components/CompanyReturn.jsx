@@ -12,8 +12,8 @@ const CompanyReturn = () => {
   const param = useParams();
 
   const API_KEY = 'KJEJ4ZQQOGDC75P4';
-  const incomeUrl = `https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=AAPL&apikey=${API_KEY}`;
-  const balanceUrl = `https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol=AAPL&apikey=${API_KEY}`;
+  const incomeUrl = `https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=${param.stockSymbol}&apikey=${API_KEY}`;
+  const balanceUrl = `https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol=${param.stockSymbol}&apikey=${API_KEY}`;
 
   useEffect(() => {
     setLoading(true);
@@ -59,15 +59,15 @@ const CompanyReturn = () => {
   if (error) return <p>An error occurred: {error.message}</p>;
 
   // key variables
-  const latestFiscalYear = stockBalance?.annualReports[0].fiscalDateEnding.slice(0,4);
+  const latestFiscalYear = stockBalance?.annualReports[0]?.fiscalDateEnding.slice(0,4);
 
-  const ROA = stockIncome?.annualReports[0].netIncome / stockBalance?.annualReports[0].totalAssets;
+  const ROA = stockIncome?.annualReports[0]?.netIncome / stockBalance?.annualReports[0]?.totalAssets;
 
-  const ROE = stockIncome?.annualReports[0].netIncome / stockBalance?.annualReports[0].totalShareholderEquity;
+  const ROE = stockIncome?.annualReports[0]?.netIncome / stockBalance?.annualReports[0]?.totalShareholderEquity;
 
-  const ROIC = (stockIncome?.annualReports[0].operatingIncome - stockIncome?.annualReports[0].incomeTaxExpense) / (Number(stockBalance?.annualReports[0].totalShareholderEquity) + Number(stockBalance?.annualReports[0].shortTermDebt) + Number(stockBalance?.annualReports[0].longTermDebt) - Number(stockBalance?.annualReports[0].cashAndCashEquivalentsAtCarryingValue));
+  const ROIC = (stockIncome?.annualReports[0]?.operatingIncome - stockIncome?.annualReports[0]?.incomeTaxExpense) / (Number(stockBalance?.annualReports[0]?.totalShareholderEquity) + Number(stockBalance?.annualReports[0]?.shortTermDebt) + Number(stockBalance?.annualReports[0]?.longTermDebt) - Number(stockBalance?.annualReports[0]?.cashAndCashEquivalentsAtCarryingValue));
 
-  const ROCE = stockIncome?.annualReports[0].ebit / (stockBalance?.annualReports[0].totalAssets - stockBalance?.annualReports[0].totalCurrentLiabilities);
+  const ROCE = stockIncome?.annualReports[0]?.ebit / (stockBalance?.annualReports[0]?.totalAssets - stockBalance?.annualReports[0]?.totalCurrentLiabilities);
 
   return (
     <div className='returns-table'>

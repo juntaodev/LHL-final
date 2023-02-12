@@ -12,8 +12,8 @@ const CompanyHealth = () => {
   const param = useParams();
 
   const API_KEY = 'KJEJ4ZQQOGDC75P4';
-  const incomeUrl = `https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=AAPL&apikey=${API_KEY}`;
-  const balanceUrl = `https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol=AAPL&apikey=${API_KEY}`;
+  const incomeUrl = `https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=${param.stockSymbol}&apikey=${API_KEY}`;
+  const balanceUrl = `https://www.alphavantage.co/query?function=BALANCE_SHEET&symbol=${param.stockSymbol}&apikey=${API_KEY}`;
 
   useEffect(() => {
     setLoading(true);
@@ -59,19 +59,15 @@ const CompanyHealth = () => {
   if (error) return <p>An error occurred: {error.message}</p>;
 
   // key variables
-  const latestFiscalYear = stockBalance?.annualReports[0].fiscalDateEnding.slice(0,4);
+  const latestFiscalYear = stockBalance?.annualReports[0]?.fiscalDateEnding.slice(0,4);
 
-  const currentRatio = Number(stockBalance?.annualReports[0].totalCurrentAssets) / Number(stockBalance?.annualReports[0].totalCurrentLiabilities);
+  const currentRatio = Number(stockBalance?.annualReports[0]?.totalCurrentAssets) / Number(stockBalance?.annualReports[0]?.totalCurrentLiabilities);
 
-  const debtRatio = (Number(stockBalance?.annualReports[0].shortTermDebt) + Number(stockBalance?.annualReports[0].longTermDebt)) / Number(stockBalance?.annualReports[0].totalAssets);
+  const debtRatio = (Number(stockBalance?.annualReports[0]?.shortTermDebt) + Number(stockBalance?.annualReports[0]?.longTermDebt)) / Number(stockBalance?.annualReports[0]?.totalAssets);
 
-  const sharesOutstandingChange = (Number(stockBalance?.annualReports[0].commonStockSharesOutstanding) - Number(stockBalance?.annualReports[1].commonStockSharesOutstanding)) / Number(stockBalance?.annualReports[1].commonStockSharesOutstanding);
+  const sharesOutstandingChange = (Number(stockBalance?.annualReports[0]?.commonStockSharesOutstanding) - Number(stockBalance?.annualReports[1]?.commonStockSharesOutstanding)) / Number(stockBalance?.annualReports[1]?.commonStockSharesOutstanding);
 
-  const debtToEbitda = ((Number(stockBalance?.annualReports[0].shortTermDebt) + Number(stockBalance?.annualReports[0].longTermDebt)) / Number(stockIncome?.annualReports[0].ebitda));
-
-  const intangiblesToAssets = (Number(stockBalance?.annualReports[0].intangibleAssets) / Number(stockBalance?.annualReports[0].totalAssets));
-
-  
+  const debtToEbitda = (Number(stockBalance?.annualReports[0]?.shortTermDebt) + Number(stockBalance?.annualReports[0]?.longTermDebt)) / Number(stockIncome?.annualReports[0]?.ebitda);
   
   return (
     <div className='health-table'>

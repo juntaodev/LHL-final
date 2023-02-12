@@ -12,8 +12,8 @@ const CompanyGrowth = () => {
   const param = useParams();
 
   const API_KEY = 'KJEJ4ZQQOGDC75P4';
-  const incomeUrl = `https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=AAPL&apikey=${API_KEY}`;
-  const cashUrl = `https://www.alphavantage.co/query?function=CASH_FLOW&symbol=AAPL&apikey=${API_KEY}`;
+  const incomeUrl = `https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=${param.stockSymbol}&apikey=${API_KEY}`;
+  const cashUrl = `https://www.alphavantage.co/query?function=CASH_FLOW&symbol=${param.stockSymbol}&apikey=${API_KEY}`;
 
   useEffect(() => {
     setLoading(true);
@@ -58,16 +58,16 @@ const CompanyGrowth = () => {
   }
   if (error) return <p>An error occurred: {error.message}</p>;
 
-  const revenueGrowthOneYear = (stockIncome.annualReports[0].totalRevenue - stockIncome.annualReports[1].totalRevenue) / stockIncome.annualReports[1].totalRevenue;
-  const revenueGrowthFiveYear = (stockIncome.annualReports[0].totalRevenue - stockIncome.annualReports[4].totalRevenue) / stockIncome.annualReports[4].totalRevenue / 4;
-  const grossProfitGrowthOneYear = (stockIncome.annualReports[0].grossProfit - stockIncome.annualReports[1].grossProfit) / stockIncome.annualReports[1].grossProfit;
-  const grossProfitGrowthFiveYear = (stockIncome.annualReports[0].grossProfit - stockIncome.annualReports[4].grossProfit) / stockIncome.annualReports[4].grossProfit / 4;
-  const netIncomeGrowthOneYear = (stockIncome.annualReports[0].netIncome - stockIncome.annualReports[1].netIncome) / stockIncome.annualReports[1].netIncome;
-  const netIncomeGrowthFiveYear = (stockIncome.annualReports[0].netIncome - stockIncome.annualReports[4].netIncome) / stockIncome.annualReports[4].netIncome / 4;
-  const operatingCashflowGrowthOneYear = (stockCash.annualReports[0].operatingCashflow - stockCash.annualReports[1].operatingCashflow) / stockCash.annualReports[1].operatingCashflow;
-  const operatingCashflowGrowthFiveYear = (stockCash.annualReports[0].operatingCashflow - stockCash.annualReports[4].operatingCashflow) / stockCash.annualReports[4].operatingCashflow / 4;
-  const freeCashflowGrowthOneYear = ((stockCash.annualReports[0].operatingCashflow - stockCash.annualReports[0].capitalExpenditures) - (stockCash.annualReports[1].operatingCashflow - stockCash.annualReports[1].capitalExpenditures)) / (stockCash.annualReports[1].operatingCashflow - stockCash.annualReports[1].capitalExpenditures);
-  const freeCashflowGrowthFiveYear = ((stockCash.annualReports[0].operatingCashflow - stockCash.annualReports[0].capitalExpenditures) - (stockCash.annualReports[4].operatingCashflow - stockCash.annualReports[4].capitalExpenditures)) / (stockCash.annualReports[4].operatingCashflow - stockCash.annualReports[4].capitalExpenditures) / 4;
+  const revenueGrowthOneYear = (stockIncome.annualReports[0]?.totalRevenue - stockIncome.annualReports[1]?.totalRevenue) / stockIncome.annualReports[1]?.totalRevenue;
+  const revenueGrowthFiveYear = (stockIncome.annualReports[0]?.totalRevenue - stockIncome.annualReports[4]?.totalRevenue) / stockIncome.annualReports[4]?.totalRevenue / 4;
+  const grossProfitGrowthOneYear = (stockIncome.annualReports[0]?.grossProfit - stockIncome.annualReports[1]?.grossProfit) / stockIncome.annualReports[1]?.grossProfit;
+  const grossProfitGrowthFiveYear = (stockIncome.annualReports[0]?.grossProfit - stockIncome.annualReports[4]?.grossProfit) / stockIncome.annualReports[4]?.grossProfit / 4;
+  const netIncomeGrowthOneYear = (stockIncome.annualReports[0]?.netIncome - stockIncome.annualReports[1]?.netIncome) / stockIncome.annualReports[1]?.netIncome;
+  const netIncomeGrowthFiveYear = (stockIncome.annualReports[0]?.netIncome - stockIncome.annualReports[4]?.netIncome) / stockIncome.annualReports[4]?.netIncome / 4;
+  const operatingCashflowGrowthOneYear = (stockCash.annualReports[0]?.operatingCashflow - stockCash.annualReports[1]?.operatingCashflow) / stockCash.annualReports[1]?.operatingCashflow;
+  const operatingCashflowGrowthFiveYear = (stockCash.annualReports[0]?.operatingCashflow - stockCash.annualReports[4]?.operatingCashflow) / stockCash.annualReports[4]?.operatingCashflow / 4;
+  const freeCashflowGrowthOneYear = ((stockCash.annualReports[0]?.operatingCashflow - stockCash.annualReports[0]?.capitalExpenditures) - (stockCash.annualReports[1]?.operatingCashflow - stockCash.annualReports[1]?.capitalExpenditures)) / (stockCash.annualReports[1]?.operatingCashflow - stockCash.annualReports[1]?.capitalExpenditures);
+  const freeCashflowGrowthFiveYear = ((stockCash.annualReports[0]?.operatingCashflow - stockCash.annualReports[0]?.capitalExpenditures) - (stockCash.annualReports[4]?.operatingCashflow - stockCash.annualReports[4]?.capitalExpenditures)) / (stockCash.annualReports[4]?.operatingCashflow - stockCash.annualReports[4]?.capitalExpenditures) / 4;
 
   return (
     <div className='growth-table'>
