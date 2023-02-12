@@ -40,9 +40,20 @@ const StockCashflow = () => {
   }
 
   if (!stockCashflow) {
-    return <div>Loading...</div>;
+    return <progress className="progress w-56"></progress>;
   }
-  if (error) return <p>An error occurred: {error.message}</p>;
+  if (loading) {
+    return <progress className="progress w-56"></progress>;
+  }
+  if (error) {
+    return (
+      <div className="alert alert-error shadow-lg">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+         <span>Error! Something is Wrong! Try Refresh!</span>
+        </div>
+      </div>)
+  }
 
   return (
     <div>
@@ -53,7 +64,7 @@ const StockCashflow = () => {
       <table className="table-auto w-full">
        <thead>
           <tr>
-            <th className="text-primary p-4 text-lg">
+            <th className="text-secondary p-4 text-lg">
               Cash Flow Statement
               {/* The button to open modal */}
               <label htmlFor="Cash Flow Statement" className="btn btn-xs btn-ghost btn-circle">?</label>
@@ -67,7 +78,7 @@ const StockCashflow = () => {
                   <p className="py-2">The cash flow statement is very important to pay attention to because it shows investors how much cash the company is bringing in, and where its cash is coming from. It's called the cash flow statement because it shows how the cash is flowing in and out of the company.</p>
                   <p className="py-2">The cash flow statement is a lot like the income statement, but its only goal is to show how much cash the company is producing and where cash is flowing. It's for this reason that a lot of non cash expenses are added back onto the cash flow statement because again, this statement's goal is to track the actual cash movements in the company.</p>
                   <p className="py-2">Cash flows are very important to pay attention to and can really show investors a lot about the company and its management. It can show you whether the company is losing money, diluting its shareholders, how much the management is paying themselves, and if the company's operations are producing cash organically.</p>
-                  <p className="py-2">It’s very important to understand how to read a company's cash flows, and Stock Unlock's education mode will help explain everything in detail to you as well as give you some tips and tricks to watch out for.</p>
+                  <p className="py-2">It's very important to understand how to read a company's cash flows, and Stock Unlock's education mode will help explain everything in detail to you as well as give you some tips and tricks to watch out for.</p>
                 </label>
               </label> 
             </th>
@@ -82,7 +93,7 @@ const StockCashflow = () => {
           <tr>
             <th className="lowercase text-secondary p-4 bg-blue-100 text-sm">* number shown in thousands</th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className="text-lg text-secondary p-4 bg-blue-100">{element.fiscalDateEnding.slice(0,4)}</th>
+              return <th key={element.fiscalDateEnding} className="text-lg text-secondary p-4 bg-blue-100 text-right">{element.fiscalDateEnding.slice(0,4)}</th>
             })}
           </tr>
           </thead>
@@ -107,7 +118,7 @@ const StockCashflow = () => {
               </label>             
             </th>
             {yearList.map((element) => {
-              return <th   key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.operatingCashflow)} thousandSeparator="," displayType="text"/></th>
+              return <th   key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.operatingCashflow)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
 
@@ -136,7 +147,7 @@ const StockCashflow = () => {
               </label>  
             </th>
             {yearList.map((element) => {
-              return <th   key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.netIncome)} thousandSeparator="," displayType="text"/></th>
+              return <th   key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.netIncome)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
 
@@ -163,7 +174,7 @@ const StockCashflow = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th   key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.depreciationDepletionAndAmortization)} thousandSeparator="," displayType="text"/></th>
+              return <th   key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.depreciationDepletionAndAmortization)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
 
@@ -188,7 +199,7 @@ const StockCashflow = () => {
               </label> 
             </th>
             {yearList.map((element) => {
-              return <th   key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.cashflowFromInvestment)} thousandSeparator="," displayType="text"/></th>
+              return <th   key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.cashflowFromInvestment)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
           
@@ -213,7 +224,7 @@ const StockCashflow = () => {
             
             </th>
             {yearList.map((element) => {
-              return <th   key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.cashflowFromFinancing)} thousandSeparator="," displayType="text"/></th>
+              return <th   key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.cashflowFromFinancing)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
 
@@ -236,7 +247,7 @@ const StockCashflow = () => {
               </label> 
             </th>
             {yearList.map((element) => {
-              return <th   key={element.fiscalDateEnding} className='font-normal p-4'>{element.proceedsFromRepaymentsOfShortTermDebt === "None"? "--" : <NumericFormat value={showInThousands(element.proceedsFromRepaymentsOfShortTermDebt)} thousandSeparator="," displayType="text"/>}</th>
+              return <th   key={element.fiscalDateEnding} className='font-normal p-4 text-right'>{element.proceedsFromRepaymentsOfShortTermDebt === "None"? "--" : <NumericFormat value={showInThousands(element.proceedsFromRepaymentsOfShortTermDebt)} thousandSeparator="," displayType="text"/>}</th>
             })}
           </tr>
           
@@ -261,7 +272,7 @@ const StockCashflow = () => {
               </label> 
             </th>
             {yearList.map((element) => {
-              return <th   key={element.fiscalDateEnding} className='font-normal p-4'>{element.paymentsForRepurchaseOfCommonStock === "None"? "--" : <NumericFormat value={showInThousands(element.paymentsForRepurchaseOfCommonStock)} thousandSeparator="," displayType="text"/>}</th>
+              return <th   key={element.fiscalDateEnding} className='font-normal p-4 text-right'>{element.paymentsForRepurchaseOfCommonStock === "None"? "--" : <NumericFormat value={showInThousands(element.paymentsForRepurchaseOfCommonStock)} thousandSeparator="," displayType="text"/>}</th>
             })}
           </tr>
           
@@ -286,7 +297,7 @@ const StockCashflow = () => {
               </label> 
             </th>
             {yearList.map((element) => {
-              return <th   key={element.fiscalDateEnding} className='font-normal p-4'>{element.proceedsFromIssuanceOfCommonStock === "None"? "--" : <NumericFormat value={showInThousands(element.proceedsFromIssuanceOfCommonStock)} thousandSeparator="," displayType="text"/>}</th>
+              return <th   key={element.fiscalDateEnding} className='font-normal p-4 text-right'>{element.proceedsFromIssuanceOfCommonStock === "None"? "--" : <NumericFormat value={showInThousands(element.proceedsFromIssuanceOfCommonStock)} thousandSeparator="," displayType="text"/>}</th>
             })}
           </tr>
 
@@ -303,12 +314,12 @@ const StockCashflow = () => {
               <label htmlFor="dividendPayout" className="modal cursor-pointer">
                 <label className="modal-box relative" htmlFor="">
                   
-                  <p className="py-2">Dividend payout is the total amount of dividends paid over the report period by a company. Dividends can be paid quarterly, monthly, or at random, so this value is a sum of all dividends paid. When a company pays dividends, investors should always check to make sure that they are generating enough cash to afford these payments. It's not common, but companies have taken loans to pay dividends, or have diluted shareholders to pay dividends. Taking a look at both the cash from operations and the free cash flow the company generates is a good way to make sure the company can afford to continue paying the dividend, and that it isn’t a stress on the company.</p>
+                  <p className="py-2">Dividend payout is the total amount of dividends paid over the report period by a company. Dividends can be paid quarterly, monthly, or at random, so this value is a sum of all dividends paid. When a company pays dividends, investors should always check to make sure that they are generating enough cash to afford these payments. It's not common, but companies have taken loans to pay dividends, or have diluted shareholders to pay dividends. Taking a look at both the cash from operations and the free cash flow the company generates is a good way to make sure the company can afford to continue paying the dividend, and that it isn't a stress on the company.</p>
                 </label>
               </label> 
             </th>
             {yearList.map((element) => {
-              return <th   key={element.fiscalDateEnding} className='font-normal p-4'>{element.dividendPayout === "None"? "--" : <NumericFormat value={showInThousands(element.dividendPayout)} thousandSeparator="," displayType="text"/>}</th>
+              return <th   key={element.fiscalDateEnding} className='font-normal p-4 text-right'>{element.dividendPayout === "None"? "--" : <NumericFormat value={showInThousands(element.dividendPayout)} thousandSeparator="," displayType="text"/>}</th>
             })}
           </tr>
 
@@ -332,7 +343,7 @@ const StockCashflow = () => {
               </label> 
             </th>
             {yearList.map((element) => {
-              return <th   key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.changeInCashAndCashEquivalents)} thousandSeparator="," displayType="text"/></th>
+              return <th   key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.changeInCashAndCashEquivalents)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
 
@@ -359,7 +370,7 @@ const StockCashflow = () => {
               </label> 
             </th>
             {yearList.map((element) => {
-              return <th   key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.capitalExpenditures)} thousandSeparator="," displayType="text"/></th>
+              return <th   key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.capitalExpenditures)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
 
@@ -396,7 +407,7 @@ const StockCashflow = () => {
               </label> 
             </th>
             {yearList.map((element) => {
-              return <th   key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.operatingCashflow - element.capitalExpenditures)} thousandSeparator="," displayType="text"/></th>
+              return <th   key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.operatingCashflow - element.capitalExpenditures)} thousandSeparator="," displayType="text"/></th>
             })}
           </tr>
           </tbody>

@@ -40,9 +40,20 @@ const StockBalance = () => {
   }
 
   if (!stockBalance) {
-    return <div>Loading...</div>;
+    return <progress className="progress w-56"></progress>;
   }
-  if (error) return <p>An error occurred: {error.message}</p>;
+  if (loading) {
+    return <progress className="progress w-56"></progress>;
+  }
+  if (error) {
+    return (
+      <div className="alert alert-error shadow-lg">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+         <span>Error! Something is Wrong! Try Refresh!</span>
+        </div>
+      </div>)
+  }
 
   return (
     <div>
@@ -55,7 +66,7 @@ const StockBalance = () => {
       <table className="table-auto w-full">
        <thead>
           <tr>
-            <th className="text-primary p-4 text-lg">
+            <th className="text-secondary p-4 text-lg">
               Balance Sheet
               {/* The button to open modal */}
               <label htmlFor="BalanceSheet" className="btn btn-xs btn-ghost btn-circle">?</label>
@@ -64,10 +75,10 @@ const StockBalance = () => {
               <input type="checkbox" id="BalanceSheet" className="modal-toggle" />
               <label htmlFor="BalanceSheet" className="modal cursor-pointer font-normal text-left text-secondary text-base">
                 <label className="modal-box relative " htmlFor="">
-                  <p className="py-2">The balance sheet is one of 3 financial documents that company’s file on a quarterly basis (once every 3 months) to update the public and investors about how the financial health of the company is doing.</p>
-                  <p className="py-2">The balance sheet shows investors the company’s assets and liabilities, or in other words, what the company owns and how much debt it has. There are a lot of things to look out for on the balance sheet, and many investors may be looking for different things depending on their individual goals.</p>
-                  <p className="py-2">Understanding how to read a balance sheet can really help investors avoid massive losses in their portfolios, because it allows them to spot company’s that are struggling or taking on too much debt.</p>
-                  <p className="py-2">On the other hand, the balance sheet also tells investors if the company is financially sound and not at any risk of going bankrupt any time soon. A strong balance sheet ensures that the company isn’t in financial stress and puts the company in a position of power.</p>
+                  <p className="py-2">The balance sheet is one of 3 financial documents that company's file on a quarterly basis (once every 3 months) to update the public and investors about how the financial health of the company is doing.</p>
+                  <p className="py-2">The balance sheet shows investors the company's assets and liabilities, or in other words, what the company owns and how much debt it has. There are a lot of things to look out for on the balance sheet, and many investors may be looking for different things depending on their individual goals.</p>
+                  <p className="py-2">Understanding how to read a balance sheet can really help investors avoid massive losses in their portfolios, because it allows them to spot company's that are struggling or taking on too much debt.</p>
+                  <p className="py-2">On the other hand, the balance sheet also tells investors if the company is financially sound and not at any risk of going bankrupt any time soon. A strong balance sheet ensures that the company isn't in financial stress and puts the company in a position of power.</p>
                   
                 </label>
               </label> 
@@ -83,7 +94,7 @@ const StockBalance = () => {
             <tr>
               <th className="lowercase text-secondary p-4 bg-blue-100 text-sm">* number shown in thousands</th>
               {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className="text-lg text-secondary p-4 bg-blue-100">{element.fiscalDateEnding.slice(0,4)}</th>
+              return <th key={element.fiscalDateEnding} className="text-lg text-secondary p-4 bg-blue-100 text-right">{element.fiscalDateEnding.slice(0,4)}</th>
               })}
             </tr>
           </thead>
@@ -108,7 +119,7 @@ const StockBalance = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.totalAssets)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.totalAssets)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -126,14 +137,14 @@ const StockBalance = () => {
                   
                   <p className="py-2">Current assets are the assets the company plans to turn into cash within the next year.</p>
                   <p className="py-2">An example of a current asset would be a company's inventory that it is in the process of selling. Since the company is actively trying to sell its inventory, and the company expects it to be sold within the next 12 months, it is reported as a current asset on the balance sheet.</p>
-                  <p className="py-2">Current assets aren’t just inventory though. Even a property that the business is planning on selling can be a current asset so long as the company is expecting to sell it within the next 12 months/year.</p>
+                  <p className="py-2">Current assets aren't just inventory though. Even a property that the business is planning on selling can be a current asset so long as the company is expecting to sell it within the next 12 months/year.</p>
                   
                 </label>
               </label>
 
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.totalCurrentAssets)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.totalCurrentAssets)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr> 
 
@@ -155,7 +166,7 @@ const StockBalance = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.cashAndCashEquivalentsAtCarryingValue)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.cashAndCashEquivalentsAtCarryingValue)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -172,14 +183,14 @@ const StockBalance = () => {
               <label htmlFor="totalNonCurrentAssets" className="modal cursor-pointer font-normal">
                 <label className="modal-box relative" htmlFor="">
                   
-                  <p className="py-2">Total non current assets is how many assets the company has that are not easily liquidated (turned into) cash within the next year. You can typically get this number by subtracting the current assets from the total assets. The non-current assets typically include things like real estate, equipment, and long term investments the company doesn’t plan on selling anytime soon.</p>
+                  <p className="py-2">Total non current assets is how many assets the company has that are not easily liquidated (turned into) cash within the next year. You can typically get this number by subtracting the current assets from the total assets. The non-current assets typically include things like real estate, equipment, and long term investments the company doesn't plan on selling anytime soon.</p>
                   
                   
                 </label>
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.totalNonCurrentAssets)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.totalNonCurrentAssets)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -204,7 +215,7 @@ const StockBalance = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'>{element.intangibleAssets === "None"? "--" :<NumericFormat value={showInThousands(element.intangibleAssets)} thousandSeparator="," displayType="text"/>}</th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'>{element.intangibleAssets === "None"? "--" :<NumericFormat value={showInThousands(element.intangibleAssets)} thousandSeparator="," displayType="text"/>}</th>
             })}
             </tr>
 
@@ -223,17 +234,17 @@ const StockBalance = () => {
                   
                   <p className="py-2">Goodwill is a specific type of an intangible asset that is added to a company's balance sheet after it acquires another company. The goodwill is reported as the amount the acquiring company paid over the fair value of the other company.</p>
                   <p className="py-2">When one company buys another it's usually at a 'premium' price, so if company A paid 2 million for company B,, but it was only worth 1.5 million, then company A would add $500,000 to the goodwill on its balance sheet.</p>
-                  <p className="py-2">Typically company’s pay a premium in an acquisition because they factor in intangible assets like brand names, a solid customer base, good customer relations, and other things like this that don’t have a tangible asset value. Again, the amount the acquiring company pays for all of these intangibles is reported as goodwill on their balance sheet after the acquisition is completed.</p>
-                  <p className="py-2">Many investors like to subtract intangible assets such as goodwill from the company's total assets since they aren't tangible. This gives investors a better idea of how many total tangible assets the company has, as the goodwill can make up a large portion of a company’s total assets.</p>
-                  <p className="py-2">For example, if a company has $1 million in goodwill, $200,000 in tangible assets, and $1 million in total debt, then the company's total assets are valued at $1.2 million vs. liabilities of $1 million. At first glance this may make it seem like the company is in decent financial shape. However, if we subtract the $1 million of goodwill from the total assets, we can see that the company only actually has $200,000 in total tangible assets vs. $1 million in debt, which doesn’t seem nearly as strong. Therefore by subtracting the goodwill from the total assets, we can get a more accurate look at the financial health of the business.</p>
-                  <p className="py-2">If a company’s goodwill is growing on the balance sheet, then it means they’re acquiring more and more companies. A company acquiring another isn’t always a bad thing, as there may be some economies of scale between the 2 businesses that make the whole more efficient. However, investors should investigate a company’s acquisitions to see if they make sense and are worth the money.</p>
-                  <p className="py-2">Sometimes acquisitions can be overly expensive, or the two companies can be completely unrelated. Investors should investigate acquisitions to see if they believe they’re good or bad for shareholders.</p>
+                  <p className="py-2">Typically company's pay a premium in an acquisition because they factor in intangible assets like brand names, a solid customer base, good customer relations, and other things like this that don't have a tangible asset value. Again, the amount the acquiring company pays for all of these intangibles is reported as goodwill on their balance sheet after the acquisition is completed.</p>
+                  <p className="py-2">Many investors like to subtract intangible assets such as goodwill from the company's total assets since they aren't tangible. This gives investors a better idea of how many total tangible assets the company has, as the goodwill can make up a large portion of a company's total assets.</p>
+                  <p className="py-2">For example, if a company has $1 million in goodwill, $200,000 in tangible assets, and $1 million in total debt, then the company's total assets are valued at $1.2 million vs. liabilities of $1 million. At first glance this may make it seem like the company is in decent financial shape. However, if we subtract the $1 million of goodwill from the total assets, we can see that the company only actually has $200,000 in total tangible assets vs. $1 million in debt, which doesn't seem nearly as strong. Therefore by subtracting the goodwill from the total assets, we can get a more accurate look at the financial health of the business.</p>
+                  <p className="py-2">If a company's goodwill is growing on the balance sheet, then it means they're acquiring more and more companies. A company acquiring another isn't always a bad thing, as there may be some economies of scale between the 2 businesses that make the whole more efficient. However, investors should investigate a company's acquisitions to see if they make sense and are worth the money.</p>
+                  <p className="py-2">Sometimes acquisitions can be overly expensive, or the two companies can be completely unrelated. Investors should investigate acquisitions to see if they believe they're good or bad for shareholders.</p>
                   
                 </label>
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'>{element.goodwill === "None"? "--" :<NumericFormat value={showInThousands(element.goodwill)} thousandSeparator="," displayType="text"/>}</th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'>{element.goodwill === "None"? "--" :<NumericFormat value={showInThousands(element.goodwill)} thousandSeparator="," displayType="text"/>}</th>
             })}
             </tr>
 
@@ -251,16 +262,16 @@ const StockBalance = () => {
                 <label className="modal-box relative" htmlFor="">
                   
                   <p className="py-2">Total liabilities are the amount of debts and other obligations the company has to pay in the future. Having liabilities/debts is expected and normal for any business, however they must be managed effectively.</p>
-                  <p className="py-2">Tracking total liabilities over time with asset growth can also give insight into how well a company is at managing it's balance sheet and cash. However, almost all companies take on more debt as they grow, and a company's total liabilities increasing isn’t always a red flag. They may be taking on more debt to fuel more rapid growth.</p>
+                  <p className="py-2">Tracking total liabilities over time with asset growth can also give insight into how well a company is at managing it's balance sheet and cash. However, almost all companies take on more debt as they grow, and a company's total liabilities increasing isn't always a red flag. They may be taking on more debt to fuel more rapid growth.</p>
                   <p className="py-2">Tracking the total liabilities vs. the total assets over time will tell investors if the company is growing its debts more rapidly than its assets. This is a very important thing to watch for, and investors typically prefer when a company is growing its assets more quickly than its debts.</p>
-                  <p className="py-2">If a company has more total liabilities than total assets it can be a red flag because it means the company doesn’t currently have enough assets to service all its debts. In this case, the company will either have to use future profits to service debts, or raise money through dilution. In these cases, it’s always good for investors to also check if the company is cash flow positive, so that it can use future cash flows to help with the debt.</p>
+                  <p className="py-2">If a company has more total liabilities than total assets it can be a red flag because it means the company doesn't currently have enough assets to service all its debts. In this case, the company will either have to use future profits to service debts, or raise money through dilution. In these cases, it's always good for investors to also check if the company is cash flow positive, so that it can use future cash flows to help with the debt.</p>
                   
                  
                 </label>
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.totalLiabilities)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.totalLiabilities)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -284,7 +295,7 @@ const StockBalance = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.totalCurrentLiabilities)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.totalCurrentLiabilities)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -307,7 +318,7 @@ const StockBalance = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.currentDebt)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.currentDebt)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -325,14 +336,14 @@ const StockBalance = () => {
                 <label className="modal-box relative" htmlFor="">
                   
                   <p className="py-2">Accounts payable is the amount of money a company owes to another vendor/company (similar to debt). A good way to remember this is that 'payables' is money the company must PAY (this is the opposite of account receivables). One example of this could be an airline company that owes money to the company it purchased the airplane from, if they didn't pay in full.</p>
-                  <p className="py-2">Another way to think about this on a more personal level would be a credit card bill. If you owe $500 on your credit card, then this would be like an account payable. It’s basically money the company has to pay.</p>
+                  <p className="py-2">Another way to think about this on a more personal level would be a credit card bill. If you owe $500 on your credit card, then this would be like an account payable. It's basically money the company has to pay.</p>
                   <p className="py-2">Since accounts payable is under the current liabilities, it means this debt is due within the next year, or 12 months. In accounting, “current” means within the next 12 months. So Accounts Payable are debts the company needs to deal with within the next year.</p>
                  
                 </label>
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.currentAccountsPayable)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.currentAccountsPayable)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -355,7 +366,7 @@ const StockBalance = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.totalNonCurrentLiabilities)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.totalNonCurrentLiabilities)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -373,15 +384,15 @@ const StockBalance = () => {
                 <label className="modal-box relative" htmlFor="">
                   
                   <p className="py-2">Long term debt is debt that is set to be due in over a year (as opposed to short term debt which is less than a year).</p>
-                 <p className="py-2">Whenever you are investing in a company you should be aware of how much debt a company has. Just like with your own personal finances, company’s can take on long term debt that they are expected to pay back by a certain date. Company’s also have to pay interest on the debt which eats into profit margins. The more debt a company has, the more it eats into a company’s profit margins.</p>
-                 <p className="py-2">Keep in mind though that debts can have different interest rates, which means the company may have to pay less interest on some of its debt and more on other amounts. The best way to know exactly how much a company pays in interest and when its long term debts are due to be paid back is by going to the company’s most recent earnings release in their SEC filings. Company’s report each debt item, its specific interest rate, and when it’s due on these filings.</p>
-                 <p className="py-2">Another thing investors like to pay attention to is if the debt is at a fixed or variable rate. If the debt is at a fixed rate, then it means the interest rate is locked in and the amount of interest the company is paying shouldn’t change over the lifetime of the debt. If the interest rate is variable, then the company’s interest rate on that debt could change with whatever interest rates are doing, which essentially means the company could have to pay more interest on that debt in the future.</p>
-                 <p className="py-2">Keep in mind though that corporate debt is normal and expected. Investors can sometimes want companies to take on debt to accelerate growth rather than solely relying on the company’s organic cash flows to grow. However in extreme cases debt can burden a company and put them in danger of bankruptcy. It’s good practice to watch a company’s debt vs. its revenue growth, and pay attention to how much the interest payments on the debts are. You’re goal is to try and figure out if the debt is a problem for the company, or if it can easily cover its debts with its cash flows.</p>
+                 <p className="py-2">Whenever you are investing in a company you should be aware of how much debt a company has. Just like with your own personal finances, company's can take on long term debt that they are expected to pay back by a certain date. Company's also have to pay interest on the debt which eats into profit margins. The more debt a company has, the more it eats into a company's profit margins.</p>
+                 <p className="py-2">Keep in mind though that debts can have different interest rates, which means the company may have to pay less interest on some of its debt and more on other amounts. The best way to know exactly how much a company pays in interest and when its long term debts are due to be paid back is by going to the company's most recent earnings release in their SEC filings. Company's report each debt item, its specific interest rate, and when it's due on these filings.</p>
+                 <p className="py-2">Another thing investors like to pay attention to is if the debt is at a fixed or variable rate. If the debt is at a fixed rate, then it means the interest rate is locked in and the amount of interest the company is paying shouldn't change over the lifetime of the debt. If the interest rate is variable, then the company's interest rate on that debt could change with whatever interest rates are doing, which essentially means the company could have to pay more interest on that debt in the future.</p>
+                 <p className="py-2">Keep in mind though that corporate debt is normal and expected. Investors can sometimes want companies to take on debt to accelerate growth rather than solely relying on the company's organic cash flows to grow. However in extreme cases debt can burden a company and put them in danger of bankruptcy. It's good practice to watch a company's debt vs. its revenue growth, and pay attention to how much the interest payments on the debts are. You're goal is to try and figure out if the debt is a problem for the company, or if it can easily cover its debts with its cash flows.</p>
                 </label>
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.longTermDebt)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.longTermDebt)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -409,7 +420,7 @@ const StockBalance = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.totalShareholderEquity)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.totalShareholderEquity)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -431,7 +442,7 @@ const StockBalance = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.commonStock)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.commonStock)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -454,7 +465,7 @@ const StockBalance = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.commonStockSharesOutstanding)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.commonStockSharesOutstanding)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
           </tbody>

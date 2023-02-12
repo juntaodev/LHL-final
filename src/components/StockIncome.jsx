@@ -10,7 +10,6 @@ const StockIncome = () => {
   const [error, setError] = useState(null);
 
   const param = useParams();
-  console.log(param)
 
   const API_KEY = 'KJEJ4ZQQOGDC75P4';
   const url = `https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=${param.stockSymbol}&apikey=${API_KEY}`;
@@ -42,9 +41,20 @@ const StockIncome = () => {
   
 
   if (!stockIncome) {
-    return <div>Loading...</div>;
+    return <progress className="progress w-56"></progress>;
   }
-  if (error) return <p>An error occurred: {error.message}</p>;
+  if (loading) {
+    return <progress className="progress w-56"></progress>;
+  }
+  if (error) {
+    return (
+      <div className="alert alert-error shadow-lg">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+         <span>Error! Something is Wrong! Try Refresh!</span>
+        </div>
+      </div>)
+  }
 
   return (
     <div>
@@ -56,7 +66,7 @@ const StockIncome = () => {
       <table className="table-auto w-full">
        <thead>
           <tr>
-            <th className="text-primary p-4 text-lg">
+            <th className="text-secondary p-4 text-lg ">
               Income Statement
               {/* The button to open modal */}
               <label htmlFor="IncomeStatement" className="btn btn-xs btn-ghost btn-circle">?</label>
@@ -84,7 +94,7 @@ const StockIncome = () => {
             <tr>
               <th className="lowercase text-secondary p-4 bg-blue-100 text-sm">* number shown in thousands</th>
               {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className="text-lg text-secondary p-4 bg-blue-100">{element.fiscalDateEnding.slice(0,4)}</th>
+              return <th key={element.fiscalDateEnding} className="text-lg text-secondary p-4 bg-blue-100 text-right">{element.fiscalDateEnding.slice(0,4)}</th>
               })}
             </tr>
           </thead>
@@ -111,7 +121,7 @@ const StockIncome = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.totalRevenue)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.totalRevenue)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -134,7 +144,7 @@ const StockIncome = () => {
 
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.costOfRevenue)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.costOfRevenue)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr> 
 
@@ -162,7 +172,7 @@ const StockIncome = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.grossProfit)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.grossProfit)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -187,7 +197,7 @@ const StockIncome = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.operatingExpenses)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.operatingExpenses)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -211,7 +221,7 @@ const StockIncome = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.operatingIncome)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.operatingIncome)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -234,7 +244,7 @@ const StockIncome = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.otherNonOperatingIncome)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.otherNonOperatingIncome)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -257,7 +267,7 @@ const StockIncome = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.incomeBeforeTax)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.incomeBeforeTax)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -282,7 +292,7 @@ const StockIncome = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.incomeTaxExpense)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.incomeTaxExpense)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -310,7 +320,7 @@ const StockIncome = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.netIncome)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.netIncome)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
 
@@ -336,7 +346,7 @@ const StockIncome = () => {
               </label>
             </th>
             {yearList.map((element) => {
-              return <th key={element.fiscalDateEnding} className='font-normal p-4'><NumericFormat value={showInThousands(element.ebitda)} thousandSeparator="," displayType="text"/></th>
+              return <th key={element.fiscalDateEnding} className='font-normal p-4 text-right'><NumericFormat value={showInThousands(element.ebitda)} thousandSeparator="," displayType="text"/></th>
             })}
             </tr>
           </tbody>
