@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-const StockKeyValue = () => {
+const StockTrade = () => {
   const [stockQuote, setStockQuote] = useState(null);
-  const [stockTrade, setStockTrade] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -27,7 +27,7 @@ const StockKeyValue = () => {
       .then(response => {
         setStockQuote(response.data);
         setLoading(false);
-        console.log("quote", response.data)
+        // console.log("quote", response.data)
       })
       .catch(error => {
         setError(error);
@@ -37,9 +37,20 @@ const StockKeyValue = () => {
 
 
   if (!stockQuote) {
-    return <div>Loading...</div>;
+    return <progress className="progress w-56"></progress>;
   }
-  if (error) return <p>An error occurred: {error.message}</p>;
+  if (loading) {
+    return <progress className="progress w-56"></progress>;
+  }
+  if (error) {
+    return (
+      <div className="alert alert-error shadow-lg">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+         <span>Error! Something is Wrong! Try Refresh!</span>
+        </div>
+      </div>)
+  }
 
   // convert decimal to percentage format
   const decimalCut = (decimal) => {
@@ -48,9 +59,9 @@ const StockKeyValue = () => {
   
   return (
     <div className="grid flex-grow card bg-base-200 rounded-box place-items-center ">
-        
-      <p className='card pt-4 '><strong>Trading Stats </strong></p> 
-        
+      <Link to={`/stock/${param.stockSymbol}`} className="pt-2">
+      <div className='btn btn-ghost normal-case text-lg text-secondary' >Trading Stats</div>
+      </Link>   
       <div className="grid grid-cols-3 p-4 gap-4">
 
           {/*  */}
@@ -68,7 +79,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stockQuote?.previous_close? (
-            <p className="pl-3">${decimalCut(stockQuote?.previous_close)}</p>
+            <p className="pl-3 text-secondary">${decimalCut(stockQuote?.previous_close)}</p>
             ) : null}
           </div>
 
@@ -87,7 +98,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stockQuote?.open? (
-            <p className="pl-3">${decimalCut(stockQuote?.open)}</p>
+            <p className="pl-3 text-secondary">${decimalCut(stockQuote?.open)}</p>
             ) : null}
           </div>
 
@@ -106,7 +117,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stockQuote?.close? (
-            <p className="pl-3">${decimalCut(stockQuote?.close)}</p>
+            <p className="pl-3 text-secondary">${decimalCut(stockQuote?.close)}</p>
             ) : null}
           </div>
 
@@ -125,7 +136,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stockQuote?.high? (
-            <p className="pl-3">${decimalCut(stockQuote?.high)}</p>
+            <p className="pl-3 text-secondary">${decimalCut(stockQuote?.high)}</p>
             ) : null}
           </div>
 
@@ -144,7 +155,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stockQuote?.low? (
-            <p className="pl-3">${decimalCut(stockQuote?.low)}</p>
+            <p className="pl-3 text-secondary">${decimalCut(stockQuote?.low)}</p>
             ) : null}
           </div>
 
@@ -165,7 +176,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stockQuote?.volume? (
-            <p className="pl-3">{stockQuote?.volume}</p>
+            <p className="pl-3 text-secondary">{stockQuote?.volume}</p>
             ) : null}
           </div>
 
@@ -184,7 +195,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stockQuote?.fifty_two_week?.high? (
-            <p className="pl-3">${decimalCut(stockQuote?.fifty_two_week?.high)}</p>
+            <p className="pl-3 text-secondary">${decimalCut(stockQuote?.fifty_two_week?.high)}</p>
             ) : null}
           </div>
 
@@ -203,7 +214,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stockQuote?.fifty_two_week?.low? (
-            <p className="pl-3">${decimalCut(stockQuote?.fifty_two_week?.low)}</p>
+            <p className="pl-3 text-secondary">${decimalCut(stockQuote?.fifty_two_week?.low)}</p>
 
             ) : null}
           </div>
@@ -228,8 +239,8 @@ const StockKeyValue = () => {
                 </label>
               </label> 
             </div>
-            {stockQuote?.average_volume ? (
-            <p className="pl-3">{stockQuote?.average_volume}</p>
+            {stockQuote?.average_volume? (
+            <p className="pl-3 text-secondary">{stockQuote?.average_volume}</p>
             ) : null}
           </div>
 
@@ -241,4 +252,4 @@ const StockKeyValue = () => {
   )
 }
 
-export default StockKeyValue
+export default StockTrade;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import StockKeyValue from './StockKeyValue';
+import StockValuations from './StockValuations';
 import StockInfo from './StockInfo';
 import StockFinancials from './StockFinancials';
 import StockTrade from './StockTrade';
@@ -10,13 +10,13 @@ function StockOverview() {
   
 
   return (
-    <div className="">
+    <div className="max-w-[1280px] w-full mx-auto pb-8 h-100%">
 
       {/* upper layout */}
       <div className="flex flex-col w-full lg:flex-row">
       
         {/* key value */}
-        <StockKeyValue />
+        <StockValuations />
       
         <div className="divider lg:divider-horizontal"></div> 
         
@@ -42,8 +42,8 @@ function StockOverview() {
 
       <div className="divider"></div> 
 
-        {/* bottom layout */}
-        <CompanyInfo />
+      {/* bottom layout */}
+      <CompanyInfo />
 
     </div>
   );

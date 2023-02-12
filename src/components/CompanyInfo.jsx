@@ -6,7 +6,7 @@ function CompanyInfo() {
 
   return (
     <div className='flex flex-grow '>
-      <div className='px-8 py-4'><StockLogo /></div> 
+      <div className='px-8 py-2'><StockLogo /></div> 
       <div className=''><StockDesc /></div> 
     </div>
   )

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-const StockKeyValue = () => {
+const StockInfo = () => {
   const [stockProfile, setStockProfile] = useState(null);
   const [stockInfo, setStockInfo] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -56,9 +57,23 @@ const StockKeyValue = () => {
   }, [url]);
 
   if (!stockProfile) {
-    return <div>Loading...</div>;
+    return <progress className="progress w-56"></progress>;
   }
-  if (error) return <p>An error occurred: {error.message}</p>;
+  if (!stockInfo) {
+    return <progress className="progress w-56"></progress>;
+  }
+  if (loading) {
+    return <progress className="progress w-56"></progress>;
+  }
+  if (error) {
+    return (
+      <div className="alert alert-error shadow-lg">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+         <span>Error! Something is Wrong! Try Refresh!</span>
+        </div>
+      </div>)
+  }
 
   // convert decimal to percentage format
   const decToPercentage = (decimal) => {
@@ -68,7 +83,9 @@ const StockKeyValue = () => {
   return (
     <div className="grid flex-grow card bg-base-200 rounded-box place-items-center ">
          
-      <p className='card pt-4 '><strong>About </strong></p> 
+      <Link to={`/stock/${param.stockSymbol}`} className="pt-2">
+      <div className='btn btn-ghost normal-case text-lg text-secondary' >About</div>
+      </Link>  
         
       <div className="grid grid-cols-3 p-4 gap-4">
 
@@ -85,7 +102,7 @@ const StockKeyValue = () => {
                   
                   <p className="py-2">A stock market sector is a group of stocks that have a lot in common with each other, usually because they are in similar industries. There are 11 different stock market sectors, according to the most commonly used classification system: the Global Industry Classification Standard (GICS).</p>
                   <p className="py-2">We categorize stocks into sectors to make it easy to compare companies that have similar business models. Sectors also make it easier to compare which stocks are making the most money.</p>
-                  <p className="py-2"> Here are the 11 total possible values:</p>
+                  <p className="py-2">Here are the 11 total possible values:</p>
                   <p className="py-2">Energy</p>
                   <p className="py-2">Materials</p>
                   <p className="py-2">Industrials</p>
@@ -103,7 +120,7 @@ const StockKeyValue = () => {
               </label>              
             </div>
             {stockProfile.sector? (
-            <p className="pl-3">{stockProfile.sector}</p>
+            <p className="pl-3 text-secondary">{stockProfile.sector}</p>
             ) : null}
           </div>
 
@@ -128,7 +145,7 @@ const StockKeyValue = () => {
               </label>              
             </div>
             {stockProfile.industry? (
-            <p className="pl-3">{stockProfile.industry}</p>
+            <p className="pl-3 text-secondary">{stockProfile.industry}</p>
             ) : null}
           </div>
 
@@ -150,7 +167,7 @@ const StockKeyValue = () => {
               </label>              
             </div>
             {stockProfile.exchange ? (
-            <p className="pl-3">{stockProfile.exchange}</p>
+            <p className="pl-3 text-secondary">{stockProfile.exchange}</p>
             ) : null}
           </div>
 
@@ -170,7 +187,7 @@ const StockKeyValue = () => {
               </label>              
             </div>
             {stockProfile.employees? (
-            <p className="pl-3">{stockProfile.employees}</p>
+            <p className="pl-3 text-secondary">{stockProfile.employees}</p>
             ) : null}
           </div>
 
@@ -193,8 +210,8 @@ const StockKeyValue = () => {
               </label>              
             </div>
             {stockInfo?.FiscalYearEnd? (
-            <p className="pl-3">{stockInfo?.FiscalYearEnd}</p>
-            ) : <p className="pl-3">--</p>}
+            <p className="pl-3 text-secondary">{stockInfo?.FiscalYearEnd}</p>
+            ) : <p className="pl-3 text-secondary">--</p>}
           </div>
 
           {/* LatestQuarter */}
@@ -216,8 +233,8 @@ const StockKeyValue = () => {
               </label>              
             </div>
             {stockInfo?.LatestQuarter ? (
-            <p className="pl-3">{stockInfo?.LatestQuarter}</p>
-            ) : <p className="pl-3">--</p>}
+            <p className="pl-3 text-secondary">{stockInfo?.LatestQuarter}</p>
+            ) : <p className="pl-3 text-secondary">--</p>}
           </div>
 
           {/* DividendPerShare */}
@@ -238,8 +255,8 @@ const StockKeyValue = () => {
               </label>              
             </div>
             {stockInfo?.DividendPerShare !== "0" ? (
-            <p className="pl-3">${stockInfo?.DividendPerShare}</p>
-            ) : <p className="pl-3">--</p>}
+            <p className="pl-3 text-secondary">${stockInfo?.DividendPerShare}</p>
+            ) : <p className="pl-3 text-secondary">--</p>}
           </div>
 
           {/* DividendYield */}
@@ -254,13 +271,13 @@ const StockKeyValue = () => {
                 <label className="modal-box relative" htmlFor="">
                   <p className="py-2 font-bold">Dividend Yield = (Annual Dividend / Share Price) * 100% </p>
                   <p className="py-2">The dividend yield tells investors % returns they will receive in dividends relative to the company's current share price. This also means the dividend yield changes based on the share price. If the share price falls, the dividend yield goes up. If the share price rises, the yield goes down.</p>
-                  <p className="py-2">Shareholders do not need to do anything other than hold shares of the business in their investing accounts to receive the dividends. Investors like dividends because they are one of the most passive forms of income out there, as the investor doesn’t need to do anything other than hold shares.</p>
+                  <p className="py-2">Shareholders do not need to do anything other than hold shares of the business in their investing accounts to receive the dividends. Investors like dividends because they are one of the most passive forms of income out there, as the investor doesn't need to do anything other than hold shares.</p>
                 </label>
               </label>              
             </div>
             {stockInfo?.DividendYield !== "0" ? (
-            <p className="pl-3">{decToPercentage(stockInfo?.DividendYield)}</p>
-            ) : <p className="pl-3">--</p>}
+            <p className="pl-3 text-secondary">{decToPercentage(stockInfo?.DividendYield)}</p>
+            ) : <p className="pl-3 text-secondary">--</p>}
           </div>
 
           {/* ExDividendDate */}
@@ -274,14 +291,14 @@ const StockKeyValue = () => {
               <label htmlFor="ExDividendDate" className="modal cursor-pointer">
                 <label className="modal-box relative" htmlFor="">
                   
-                  <p className="py-2">The dividend yield tells investors % returns they will receive in dividends relative to the company's current share price. This also means the dividend yield changes based on the share price. If the share price falls, the dividend yield goes up. If the share price rises, the yield goes down.</p>
-                  <p className="py-2">Shareholders do not need to do anything other than hold shares of the business in their investing accounts to receive the dividends. Investors like dividends because they are one of the most passive forms of income out there, as the investor doesn’t need to do anything other than hold shares.</p>
+                  <p className="py-2">The ex-dividend date is the date in which new buyers of the company's shares will not receive the upcoming dividend. If you are buying a stock on the ex-dividend date, you will not receive its next dividend payout to its shareholders. Instead, the person who sold you your shares will receive it.</p>
+                  <p className="py-2">If you're looking to buy a dividend stock for its dividend, then you need to buy the stock before the ex-dividend date to receive its next dividend payment.</p>
                 </label>
               </label>              
             </div>
             {stockInfo?.ExDividendDate ? (
-            <p className="pl-3">{stockInfo?.ExDividendDate}</p>
-            ) : <p className="pl-3">--</p>}
+            <p className="pl-3 text-secondary">{stockInfo?.ExDividendDate}</p>
+            ) : <p className="pl-3 text-secondary">--</p>}
           </div>
 
 
@@ -290,4 +307,4 @@ const StockKeyValue = () => {
   )
 }
 
-export default StockKeyValue
+export default StockInfo;

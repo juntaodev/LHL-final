@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-const StockKeyValue = () => {
+const StockValuations = () => {
   const [stock, setstock] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -29,9 +30,20 @@ const StockKeyValue = () => {
   }, [url]);
 
   if (!stock) {
-    return <div>Loading...</div>;
+    return <progress className="progress w-56"></progress>;
   }
-  if (error) return <p>An error occurred: {error.message}</p>;
+  if (loading) {
+    return <progress className="progress w-56"></progress>;
+  }
+  if (error) {
+    return (
+      <div className="alert alert-error shadow-lg">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+         <span>Error! Something is Wrong! Try Refresh!</span>
+        </div>
+      </div>)
+  }
 
   // convert large number to K,M,B format
   const intToString = (num) => {
@@ -58,9 +70,10 @@ const StockKeyValue = () => {
 
   
   return (
-    <div className="grid flex-grow card bg-teal-50 rounded-box place-items-center">
-      
-      <p className='card pt-4 '><strong>Key Values</strong></p> 
+    <div className="grid flex-grow card bg-indigo-100 rounded-box place-items-center">
+      <Link to={`/stock/${param.stockSymbol}/evaluations`} className="pt-2">
+        <div className='btn btn-ghost normal-case text-lg text-secondary' >Valuations</div>
+      </Link >
       
       <div className="grid grid-cols-4 p-4 gap-4">
         
@@ -81,7 +94,7 @@ const StockKeyValue = () => {
               </label>              
           </div>
           {stock?.MarketCapitalization? (
-          <p className="pl-3">${intToString(stock?.MarketCapitalization)}</p>
+          <p className="pl-3 text-secondary">${intToString(stock?.MarketCapitalization)}</p>
           ) : null}
         </div>
         
@@ -102,7 +115,7 @@ const StockKeyValue = () => {
               </label>        
           </div>
           {stock?.SharesOutstanding? (
-          <p className="pl-3">{intToString(stock?.SharesOutstanding)}</p>
+          <p className="pl-3 text-secondary">{intToString(stock?.SharesOutstanding)}</p>
           ) : null}
         </div>
         
@@ -126,7 +139,7 @@ const StockKeyValue = () => {
               </label>   
             </div>
             {stock?.EPS? (
-            <p className="pl-3">${Number(stock?.EPS).toFixed(2)}</p>
+            <p className="pl-3 text-secondary">${Number(stock?.EPS).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -151,7 +164,7 @@ const StockKeyValue = () => {
               </label>   
             </div>
             {stock?.PERatio? (
-            <p className="pl-3">{Number(stock?.PERatio).toFixed(2)}</p>
+            <p className="pl-3 text-secondary">{Number(stock?.PERatio).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -175,7 +188,7 @@ const StockKeyValue = () => {
               </label>  
             </div>
             {stock?.RevenueTTM? (
-            <p className="pl-3">${intToString(stock?.RevenueTTM)}</p>
+            <p className="pl-3 text-secondary">${intToString(stock?.RevenueTTM)}</p>
             ) : null}
         </div>
         
@@ -200,7 +213,7 @@ const StockKeyValue = () => {
               </label>  
             </div>
             {stock?.PriceToSalesRatioTTM? (
-            <p className="pl-3">{Number(stock?.PriceToSalesRatioTTM).toFixed(2)}</p>
+            <p className="pl-3 text-secondary">{Number(stock?.PriceToSalesRatioTTM).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -225,7 +238,7 @@ const StockKeyValue = () => {
               </label>  
             </div>
             {stock?.BookValue? (
-            <p className="pl-3">${Number(stock?.BookValue).toFixed(2)}</p>
+            <p className="pl-3 text-secondary">${Number(stock?.BookValue).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -250,7 +263,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stock?.PriceToBookRatio? (
-            <p className="pl-3">{Number(stock?.PriceToBookRatio).toFixed(2)}</p>
+            <p className="pl-3 text-secondary">{Number(stock?.PriceToBookRatio).toFixed(2)}</p>
             ) : null}
         </div>
         
@@ -275,7 +288,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stock?.EBITDA? (
-            <p className="pl-3">${intToString(stock?.EBITDA)}</p>
+            <p className="pl-3 text-secondary">${intToString(stock?.EBITDA)}</p>
             ) : null}
         </div>
 
@@ -300,7 +313,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stock?.EVToEBITDA? (
-            <p className="pl-3">{stock?.EVToEBITDA}</p>
+            <p className="pl-3 text-secondary">{stock?.EVToEBITDA}</p>
             ) : null}
         </div>
 
@@ -325,7 +338,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stock?.EVToRevenue? (
-            <p className="pl-3">{stock?.EVToRevenue}</p>
+            <p className="pl-3 text-secondary">{stock?.EVToRevenue}</p>
             ) : null}
         </div>
 
@@ -349,7 +362,7 @@ const StockKeyValue = () => {
               </label> 
             </div>
             {stock?.ForwardPE? (
-            <p className="pl-3">{stock?.ForwardPE}</p>
+            <p className="pl-3 text-secondary">{stock?.ForwardPE}</p>
             ) : null}
         </div>
         
@@ -358,4 +371,4 @@ const StockKeyValue = () => {
   )
 }
 
-export default StockKeyValue
+export default StockValuations;

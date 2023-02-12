@@ -20,7 +20,7 @@ const StockFinancials = () => {
         const response = await axios.get(url);
         setstock(response.data);
         setLoading(false);
-        console.log("financials", response.data);
+        // console.log("financials", response.data);
       } catch (error) {
         setError(error);
       }
@@ -30,9 +30,20 @@ const StockFinancials = () => {
   }, [url]);
 
   if (!stock) {
-    return <div>Loading...</div>;
+    return <progress className="progress w-56"></progress>;
   }
-  if (error) return <p>An error occurred: {error.message}</p>;
+  if (loading) {
+    return <progress className="progress w-56"></progress>;
+  }
+  if (error) {
+    return (
+      <div className="alert alert-error shadow-lg">
+        <div>
+         <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+         <span>Error! Something is Wrong! Try Refresh!</span>
+        </div>
+      </div>)
+  }
 
   // convert large number to K,M,B format
   const intToString = (num) => {
@@ -63,9 +74,9 @@ const StockFinancials = () => {
   };
   
   return (
-    <div className="grid flex-grow card bg-pink-50 rounded-box place-items-center">
+    <div className="grid flex-grow card bg-blue-100 rounded-box place-items-center">
       <Link to={`/stock/${param.stockSymbol}/documents`} className="pt-2">
-        <div className='btn btn-ghost normal-case text-lg'>Financials</div>
+        <div className='btn btn-ghost normal-case text-lg text-secondary' >Financials</div>
       </Link > 
       <div className="grid grid-cols-3 p-4 pt-0 gap-4">
 
@@ -91,7 +102,7 @@ const StockFinancials = () => {
               </label> 
             </div>
             {stock?.GrossProfitTTM? (
-            <p className="pl-3">${intToString(stock?.GrossProfitTTM)}</p>
+            <p className="pl-3 text-secondary">${intToString(stock?.GrossProfitTTM)}</p>
             ) : null}
         </div>
 
@@ -113,7 +124,7 @@ const StockFinancials = () => {
               </label> 
             </div>
             {stock?.GrossProfitTTM? (
-            <p className="pl-3">{decToPercentage(stock?.GrossProfitTTM / stock?.RevenueTTM)}</p>
+            <p className="pl-3 text-secondary">{decToPercentage(stock?.GrossProfitTTM / stock?.RevenueTTM)}</p>
             ) : null}
         </div>
         
@@ -138,7 +149,7 @@ const StockFinancials = () => {
               </label> 
             </div>
             {stock?.OperatingMarginTTM? (
-            <p className="pl-3">{decToPercentage(stock?.OperatingMarginTTM)}</p>
+            <p className="pl-3 text-secondary">{decToPercentage(stock?.OperatingMarginTTM)}</p>
             ) : null}
         </div>
         
@@ -165,7 +176,7 @@ const StockFinancials = () => {
               </label> 
             </div>
             {stock?.RevenuePerShareTTM? (
-            <p className="pl-3">{decToPercentage(stock?.EPS / stock?.RevenuePerShareTTM)}</p>
+            <p className="pl-3 text-secondary">{decToPercentage(stock?.EPS / stock?.RevenuePerShareTTM)}</p>
             ) : null}
         </div>
 
@@ -192,7 +203,7 @@ const StockFinancials = () => {
               </label> 
             </div>
             {stock?.ReturnOnAssetsTTM? (
-            <p className="pl-3">{decToPercentage(stock?.ReturnOnAssetsTTM)}</p>
+            <p className="pl-3 text-secondary">{decToPercentage(stock?.ReturnOnAssetsTTM)}</p>
             ) : null}
         </div>
 
@@ -217,7 +228,7 @@ const StockFinancials = () => {
               </label> 
             </div>
             {stock?.ReturnOnEquityTTM ? (
-            <p className="pl-3">{Number(stock?.ReturnOnEquityTTM).toFixed(2)}%</p>
+            <p className="pl-3 text-secondary">{Number(stock?.ReturnOnEquityTTM) * 100}%</p>
             ) : null}
         </div>
 
@@ -242,7 +253,7 @@ const StockFinancials = () => {
               </label> 
             </div>
             {stock?.QuarterlyRevenueGrowthYOY? (
-            <p className="pl-3">{ decToPercentage(stock?.QuarterlyRevenueGrowthYOY)}</p>
+            <p className="pl-3 text-secondary">{ decToPercentage(stock?.QuarterlyRevenueGrowthYOY)}</p>
             ) : null}
         </div>
 
@@ -267,7 +278,7 @@ const StockFinancials = () => {
               </label> 
             </div>
             {stock?.QuarterlyEarningsGrowthYOY? (
-            <p className="pl-3">{decToPercentage(stock?.QuarterlyEarningsGrowthYOY)}</p>
+            <p className="pl-3 text-secondary">{decToPercentage(stock?.QuarterlyEarningsGrowthYOY)}</p>
             ) : null}
         </div>
 
@@ -293,7 +304,7 @@ const StockFinancials = () => {
               </label> 
             </div>
             {stock?.PEGRatio? (
-            <p className="pl-3">{stock?.PEGRatio}</p>
+            <p className="pl-3 text-secondary">{stock?.PEGRatio}</p>
             ) : null}
         </div>
         
@@ -305,4 +316,4 @@ const StockFinancials = () => {
   )
 }
 
-export default StockFinancials
+export default StockFinancials;
