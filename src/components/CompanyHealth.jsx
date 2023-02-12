@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import { FlagFilled } from '@ant-design/icons';
 
 const CompanyHealth = () => {
 
@@ -75,46 +76,46 @@ const CompanyHealth = () => {
       <table className="table-auto text-left">
         <thead>
           <tr>
-            <th className="text-lg text-secondary p-4 bg-amber-100">Financial Health</th>
-            <th className="text-lg text-secondary p-4 bg-amber-100">Latest Fiscal Year ({latestFiscalYear})</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">Financial Health</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">Fiscal Year {latestFiscalYear}</th>
             
-            <th className="text-lg text-secondary p-4 bg-amber-100">Flag</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">Flag</th>
           </tr>
         </thead>
         <tbody>
           <tr className="hover text-base text-secondary">
-            <td className='p-4 bg-amber-50'>Current Ratio</td>
+            <td className='p-4 bg-indigo-50'>Current Ratio</td>
             <td className='p-4 text-right'>{currentRatio.toFixed(2)}</td>
             
-            <td className='p-4'>{currentRatio > 1 ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{currentRatio > 1 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
 
           <tr className="hover text-base text-secondary"> 
-            <td className='p-4 bg-amber-50'>Debt Ratio</td>
+            <td className='p-4 bg-indigo-50'>Debt Ratio</td>
             <td className='p-4 text-right'>{debtRatio.toFixed(2)}</td>
             
-            <td className='p-4'>{currentRatio < 1 ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{debtRatio < 1 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
 
           <tr className="hover text-base text-secondary">
-            <td className='p-4 bg-amber-50'>Debt to EBITDA Ratio</td>
+            <td className='p-4 bg-indigo-50'>Debt to EBITDA Ratio</td>
             <td className='p-4 text-right'>{debtToEbitda.toFixed(2)}</td>
             
-            <td className='p-4'>{debtToEbitda < 1 ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{debtToEbitda < 1 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
           
           <tr className="hover text-base text-secondary"> 
-            <td className='p-4 bg-amber-50'>Shares Outstanding Change</td>
+            <td className='p-4 bg-indigo-50'>Shares Outstanding Change</td>
             <td className='p-4 text-right'>{decToPercentage(sharesOutstandingChange)}</td>
             
-            <td className='p-4'>{sharesOutstandingChange < 0 ? "green" : "red"} </td>
+            <td className='p-4 text-right'>{sharesOutstandingChange < 0 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>} </td>
           </tr>
           
           <tr className="hover text-base text-secondary"> 
-            <td className='p-4 bg-amber-50'></td>
+            <td className='p-4 bg-indigo-50'></td>
             <td className='p-4 text-right'></td>
             
-            <td className='p-4'></td>
+            <td className='p-4 text-right'></td>
           </tr>
           
           

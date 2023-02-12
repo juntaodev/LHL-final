@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import { FlagFilled } from '@ant-design/icons';
 
 const CompanyReturn = () => {
 
@@ -75,43 +76,43 @@ const CompanyReturn = () => {
       <table className="table-auto text-left">
         <thead>
           <tr>
-            <th className="text-lg text-secondary p-4 bg-amber-100">Returns</th>
-            <th className="text-lg text-secondary p-4 bg-amber-100">Latest Fiscal Year ({latestFiscalYear})</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">Returns</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">Fiscal Year {latestFiscalYear}</th>
             
-            <th className="text-lg text-secondary p-4 bg-amber-100">Flag</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">Flag</th>
           </tr>
         </thead>
         <tbody>
           <tr className="hover text-base text-secondary">
-            <td className='p-4 bg-amber-50'>Return on Invested Capitcal(ROIC)</td>
+            <td className='p-4 bg-indigo-50'>Return on Invested Capitcal (ROIC)</td>
             <td className='p-4 text-right'>{decToPercentage(ROIC)}</td>
             
-            <td className='p-4'>{ROIC > 0.07 ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{ROIC > 0.07 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
           <tr className="hover text-base text-secondary"> 
-            <td className='p-4 bg-amber-50'>Return on Capital Employed (ROCE)</td>
+            <td className='p-4 bg-indigo-50'>Return on Capital Employed (ROCE)</td>
             <td className='p-4 text-right'>{decToPercentage(ROCE)}</td>
             
-            <td className='p-4'>{ROIC > 0.2 ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{ROIC > 0.2 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
           <tr className="hover text-base text-secondary">
-            <td className='p-4 bg-amber-50'>Return on Equity (ROE)</td>
+            <td className='p-4 bg-indigo-50'>Return on Equity (ROE)</td>
             <td className='p-4 text-right'>{decToPercentage(ROE)}</td>
             
-            <td className='p-4'>{ROE > 0.15 ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{ROE > 0.15 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
           <tr className="hover text-base text-secondary">
-            <td className='p-4 bg-amber-50'>Return on Assets (ROA)</td>
+            <td className='p-4 bg-indigo-50'>Return on Assets (ROA)</td>
             <td className='p-4 text-right'>{decToPercentage(ROA)}</td>
             
-            <td className='p-4'>{ROA > 0.05 ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{ROA > 0.05 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
           
           <tr className="hover text-base text-secondary"> 
-            <td className='p-4 bg-amber-50'></td>
+            <td className='p-4 bg-indigo-50'></td>
             <td className='p-4 text-right'></td>
             
-            <td className='p-4'></td>
+            <td className='p-4 text-right'></td>
           </tr>
           
     

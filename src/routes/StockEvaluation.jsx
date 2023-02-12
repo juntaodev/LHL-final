@@ -13,7 +13,7 @@ const StockEvaluation = () => {
 
       <div className="divider"></div>
 
-      <div className="flex flex-col w-full lg:flex-row">
+      <div className="flex flex-col w-full lg:flex-row place-content-center">
 
         <CompanyGrowth />
 
@@ -25,7 +25,7 @@ const StockEvaluation = () => {
 
       <div className="divider"></div>
 
-      <div className="flex flex-col w-full lg:flex-row">
+      <div className="flex flex-col w-full lg:flex-row place-content-center">
 
         <CompanyReturn/>
       

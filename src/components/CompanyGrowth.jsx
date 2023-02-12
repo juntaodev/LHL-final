@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import { FlagFilled } from '@ant-design/icons';
 
 const CompanyGrowth = () => {
 
@@ -58,6 +59,8 @@ const CompanyGrowth = () => {
   }
   if (error) return <p>An error occurred: {error.message}</p>;
 
+  //key variables 
+  const latestFiscalYear = stockIncome?.annualReports[0]?.fiscalDateEnding.slice(0,4);
   const revenueGrowthOneYear = (stockIncome.annualReports[0]?.totalRevenue - stockIncome.annualReports[1]?.totalRevenue) / stockIncome.annualReports[1]?.totalRevenue;
   const revenueGrowthFiveYear = (stockIncome.annualReports[0]?.totalRevenue - stockIncome.annualReports[4]?.totalRevenue) / stockIncome.annualReports[4]?.totalRevenue / 4;
   const grossProfitGrowthOneYear = (stockIncome.annualReports[0]?.grossProfit - stockIncome.annualReports[1]?.grossProfit) / stockIncome.annualReports[1]?.grossProfit;
@@ -75,42 +78,49 @@ const CompanyGrowth = () => {
       <table className="table-auto text-left">
         <thead>
           <tr>
-            <th className="text-lg text-secondary p-4 bg-amber-100">Growth</th>
-            <th className="text-lg text-secondary p-4 bg-amber-100">1 YEAR</th>
-            <th className="text-lg text-secondary p-4 bg-amber-100">5 YEAR AVG</th>
-            <th className="text-lg text-secondary p-4 bg-amber-100">Flag</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">Growth</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">Fiscal Year {latestFiscalYear}</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">5 Year AVG</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">Flag</th>
           </tr>
         </thead>
         <tbody>
           <tr className="hover text-base text-secondary">
-            <td className='p-4 bg-amber-50'>Revenue Growth</td>
+            <td className='p-4 bg-indigo-50'>Revenue Growth</td>
             <td className='p-4 text-right'>{decToPercentage(revenueGrowthOneYear)}</td>
             <td className='p-4 text-right'>{decToPercentage(revenueGrowthFiveYear)}</td>
-            <td className='p-4 text-right'>{revenueGrowthOneYear > revenueGrowthFiveYear ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{revenueGrowthOneYear > revenueGrowthFiveYear ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/> }</td>
           </tr>
           <tr className="hover text-base text-secondary">
-            <td className='p-4 bg-amber-50'>Gross Profit Growth</td>
+            <td className='p-4 bg-indigo-50'>Gross Profit Growth</td>
             <td className='p-4 text-right'>{decToPercentage(grossProfitGrowthOneYear)}</td>
             <td className='p-4 text-right'>{decToPercentage(grossProfitGrowthFiveYear)}</td>
-            <td className='p-4 text-right'>{grossProfitGrowthOneYear > grossProfitGrowthFiveYear ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{grossProfitGrowthOneYear > grossProfitGrowthFiveYear ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
           <tr className="hover text-base text-secondary">
-            <td className='p-4 bg-amber-50'>Net Income Growth</td>
+            <td className='p-4 bg-indigo-50'>Net Income Growth</td>
             <td className='p-4 text-right'>{decToPercentage(netIncomeGrowthOneYear)}</td>
             <td className='p-4 text-right'>{decToPercentage(netIncomeGrowthFiveYear)}</td>
-            <td className='p-4 text-right'>{netIncomeGrowthOneYear > netIncomeGrowthFiveYear ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{netIncomeGrowthOneYear > netIncomeGrowthFiveYear ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
           <tr className="hover text-base text-secondary">
-            <td className='p-4 bg-amber-50'>Operating Cashflow Growth</td>
+            <td className='p-4 bg-indigo-50'>Operating Cashflow Growth</td>
             <td className='p-4 text-right'>{decToPercentage(operatingCashflowGrowthOneYear)}</td>
             <td className='p-4 text-right'>{decToPercentage(operatingCashflowGrowthFiveYear)}</td>
-            <td className='p-4 text-right'>{operatingCashflowGrowthOneYear > operatingCashflowGrowthFiveYear ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{operatingCashflowGrowthOneYear > operatingCashflowGrowthFiveYear ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
           <tr className="hover text-base text-secondary"> 
-            <td className='p-4 bg-amber-50'>Free Cashflow Growth</td>
+            <td className='p-4 bg-indigo-50'>Free Cashflow Growth</td>
             <td className='p-4 text-right'>{decToPercentage(freeCashflowGrowthOneYear)}</td>
             <td className='p-4 text-right'>{decToPercentage(freeCashflowGrowthFiveYear)}</td>
-            <td className='p-4 text-right'>{freeCashflowGrowthOneYear > freeCashflowGrowthFiveYear ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{freeCashflowGrowthOneYear > freeCashflowGrowthFiveYear ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
+          </tr>
+
+          <tr className="hover text-base text-secondary"> 
+            <td className='p-4 bg-indigo-50'></td>
+            <td className='p-4 text-right'></td>
+            
+            <td className='p-4'></td>
           </tr>
     
         </tbody>

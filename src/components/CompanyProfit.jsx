@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import { FlagFilled } from '@ant-design/icons';
 
 const CompanyProfit = () => {
 
@@ -76,48 +77,48 @@ const CompanyProfit = () => {
       <table className="table-auto text-left">
         <thead>
           <tr>
-            <th className="text-lg text-secondary p-4 bg-amber-100">Profitabilities</th>
-            <th className="text-lg text-secondary p-4 bg-amber-100">Latest Fiscal Year ({latestFiscalYear})</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">Profitabilities</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">Fiscal Year {latestFiscalYear}</th>
             
-            <th className="text-lg text-secondary p-4 bg-amber-100">Flag</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">Flag</th>
           </tr>
         </thead>
         <tbody>
           <tr className="hover text-base text-secondary">
-            <td className='p-4 bg-amber-50'>Gross Margin</td>
+            <td className='p-4 bg-indigo-50'>Gross Margin</td>
             <td className='p-4 text-right'>{decToPercentage(grossMargin)}</td>
             
-            <td className='p-4'>{grossMargin > 0.5 ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{grossMargin > 0.5 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
           <tr className="hover text-base text-secondary">
-            <td className='p-4 bg-amber-50'>Operating Margin</td>
+            <td className='p-4 bg-indigo-50'>Operating Margin</td>
             <td className='p-4 text-right'>{decToPercentage(operatingMargin)}</td>
             
-            <td className='p-4'>{operatingMargin > 0.2 ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{operatingMargin > 0.2 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
           <tr className="hover text-base text-secondary">
-            <td className='p-4 bg-amber-50'>Net Margin</td>
+            <td className='p-4 bg-indigo-50'>Net Margin</td>
             <td className='p-4 text-right'>{decToPercentage(netMargin)}</td>
             
-            <td className='p-4'>{netMargin > 0.2 ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{netMargin > 0.2 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
           <tr className="hover text-base text-secondary">
-            <td className='p-4 bg-amber-50'>Free Cashflow Margin</td>
+            <td className='p-4 bg-indigo-50'>Free Cashflow Margin</td>
             <td className='p-4 text-right'>{decToPercentage(freeCashflowMargin)}</td>
             
-            <td className='p-4'>{freeCashflowMargin > 0.1 ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{freeCashflowMargin > 0.1 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
           <tr className="hover text-base text-secondary"> 
-            <td className='p-4 bg-amber-50'>Cash Conversion</td>
+            <td className='p-4 bg-indigo-50'>Cash Conversion</td>
             <td className='p-4 text-right'>{decToPercentage(cashConversion)}</td>
             
-            <td className='p-4'>{cashConversion > 1 ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{cashConversion > 1 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
           <tr className="hover text-base text-secondary"> 
-            <td className='p-4 bg-amber-50'></td>
+            <td className='p-4 bg-indigo-50'></td>
             <td className='p-4 text-right'></td>
             
-            <td className='p-4'></td>
+            <td className='p-4 text-right'></td>
           </tr>
     
         </tbody>
