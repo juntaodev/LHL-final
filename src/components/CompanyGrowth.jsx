@@ -84,33 +84,33 @@ const CompanyGrowth = () => {
         <tbody>
           <tr className="hover text-base text-secondary">
             <td className='p-4 bg-amber-50'>Revenue Growth</td>
-            <td className='p-4'>{decToPercentage(revenueGrowthOneYear)}</td>
-            <td className='p-4'>{decToPercentage(revenueGrowthFiveYear)}</td>
-            <td className='p-4'>{revenueGrowthOneYear > revenueGrowthFiveYear ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{decToPercentage(revenueGrowthOneYear)}</td>
+            <td className='p-4 text-right'>{decToPercentage(revenueGrowthFiveYear)}</td>
+            <td className='p-4 text-right'>{revenueGrowthOneYear > revenueGrowthFiveYear ? "green" : "red"}</td>
           </tr>
           <tr className="hover text-base text-secondary">
             <td className='p-4 bg-amber-50'>Gross Profit Growth</td>
-            <td className='p-4'>{decToPercentage(grossProfitGrowthOneYear)}</td>
-            <td className='p-4'>{decToPercentage(grossProfitGrowthFiveYear)}</td>
-            <td className='p-4'>{grossProfitGrowthOneYear > grossProfitGrowthFiveYear ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{decToPercentage(grossProfitGrowthOneYear)}</td>
+            <td className='p-4 text-right'>{decToPercentage(grossProfitGrowthFiveYear)}</td>
+            <td className='p-4 text-right'>{grossProfitGrowthOneYear > grossProfitGrowthFiveYear ? "green" : "red"}</td>
           </tr>
           <tr className="hover text-base text-secondary">
             <td className='p-4 bg-amber-50'>Net Income Growth</td>
-            <td className='p-4'>{decToPercentage(netIncomeGrowthOneYear)}</td>
-            <td className='p-4'>{decToPercentage(netIncomeGrowthFiveYear)}</td>
-            <td className='p-4'>{netIncomeGrowthOneYear > netIncomeGrowthFiveYear ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{decToPercentage(netIncomeGrowthOneYear)}</td>
+            <td className='p-4 text-right'>{decToPercentage(netIncomeGrowthFiveYear)}</td>
+            <td className='p-4 text-right'>{netIncomeGrowthOneYear > netIncomeGrowthFiveYear ? "green" : "red"}</td>
           </tr>
           <tr className="hover text-base text-secondary">
             <td className='p-4 bg-amber-50'>Operating Cashflow Growth</td>
-            <td className='p-4'>{decToPercentage(operatingCashflowGrowthOneYear)}</td>
-            <td className='p-4'>{decToPercentage(operatingCashflowGrowthFiveYear)}</td>
-            <td className='p-4'>{operatingCashflowGrowthOneYear > operatingCashflowGrowthFiveYear ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{decToPercentage(operatingCashflowGrowthOneYear)}</td>
+            <td className='p-4 text-right'>{decToPercentage(operatingCashflowGrowthFiveYear)}</td>
+            <td className='p-4 text-right'>{operatingCashflowGrowthOneYear > operatingCashflowGrowthFiveYear ? "green" : "red"}</td>
           </tr>
           <tr className="hover text-base text-secondary"> 
             <td className='p-4 bg-amber-50'>Free Cashflow Growth</td>
-            <td className='p-4'>{decToPercentage(freeCashflowGrowthOneYear)}</td>
-            <td className='p-4'>{decToPercentage(freeCashflowGrowthFiveYear)}</td>
-            <td className='p-4'>{freeCashflowGrowthOneYear > freeCashflowGrowthFiveYear ? "green" : "red"}</td>
+            <td className='p-4 text-right'>{decToPercentage(freeCashflowGrowthOneYear)}</td>
+            <td className='p-4 text-right'>{decToPercentage(freeCashflowGrowthFiveYear)}</td>
+            <td className='p-4 text-right'>{freeCashflowGrowthOneYear > freeCashflowGrowthFiveYear ? "green" : "red"}</td>
           </tr>
     
         </tbody>

@@ -67,13 +67,10 @@ const CompanyReturn = () => {
 
   const ROIC = (stockIncome?.annualReports[0].operatingIncome - stockIncome?.annualReports[0].incomeTaxExpense) / (Number(stockBalance?.annualReports[0].totalShareholderEquity) + Number(stockBalance?.annualReports[0].shortTermDebt) + Number(stockBalance?.annualReports[0].longTermDebt) - Number(stockBalance?.annualReports[0].cashAndCashEquivalentsAtCarryingValue));
 
-  const ROCE = stockIncome?.annualReports[0].incomeBeforeTax / (stockBalance?.annualReports[0].totalAssets - stockBalance?.annualReports[0].totalCurrentLiabilities);
-
-  // console.log('ebit', typeof (stockIncome?.annualReports[0].operatingIncome - stockIncome?.annualReports[0].incomeTaxExpense) )
-  console.log('roic', ROIC)
+  const ROCE = stockIncome?.annualReports[0].ebit / (stockBalance?.annualReports[0].totalAssets - stockBalance?.annualReports[0].totalCurrentLiabilities);
 
   return (
-    <div className='growth-table'>
+    <div className='returns-table'>
 
       <table className="table-auto text-left">
         <thead>

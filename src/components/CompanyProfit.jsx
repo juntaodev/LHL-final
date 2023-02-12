@@ -76,7 +76,7 @@ const CompanyProfit = () => {
       <table className="table-auto text-left">
         <thead>
           <tr>
-            <th className="text-lg text-secondary p-4 bg-amber-100">Margins</th>
+            <th className="text-lg text-secondary p-4 bg-amber-100">Profitabilities</th>
             <th className="text-lg text-secondary p-4 bg-amber-100">Latest Fiscal Year ({latestFiscalYear})</th>
             
             <th className="text-lg text-secondary p-4 bg-amber-100">Flag</th>

@@ -79,7 +79,7 @@ const CompanyHealth = () => {
       <table className="table-auto text-left">
         <thead>
           <tr>
-            <th className="text-lg text-secondary p-4 bg-amber-100">Returns</th>
+            <th className="text-lg text-secondary p-4 bg-amber-100">Financial Health</th>
             <th className="text-lg text-secondary p-4 bg-amber-100">Latest Fiscal Year ({latestFiscalYear})</th>
             
             <th className="text-lg text-secondary p-4 bg-amber-100">Flag</th>
@@ -114,6 +114,12 @@ const CompanyHealth = () => {
             <td className='p-4'>{sharesOutstandingChange < 0 ? "green" : "red"} </td>
           </tr>
           
+          <tr className="hover text-base text-secondary"> 
+            <td className='p-4 bg-amber-50'></td>
+            <td className='p-4 text-right'></td>
+            
+            <td className='p-4'></td>
+          </tr>
           
           
     
