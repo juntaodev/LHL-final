@@ -5,7 +5,8 @@ import Footer from "./components/Footer";
 
 import Home from "./routes/Home";
 import StockDetail from "./routes/StockDetail";
-
+import Starter from "./routes/Starter";
+import Screener from "./routes/Screener";
 import StockDocuments from "./routes/StockDocuments";
 import StockEvaluation from "./routes/StockEvaluation";
 
@@ -16,7 +17,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          
+          <Route path="/starter" element={<Starter />} />
+          <Route path="/screener" element={<Screener />} />
           <Route path="/stock/:stockSymbol" element={<StockDetail />}>
             <Route path=":stockSymbol" />
           </Route>
