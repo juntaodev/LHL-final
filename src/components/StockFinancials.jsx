@@ -97,7 +97,7 @@ const StockFinancials = () => {
                   <p className="py-2">However, investors need to be careful when looking at gross profit, because gross profits are not earnings or free cash flow for the company. It still has many other expenses it needs to take care of using the gross profit figure.</p>
                   <p className="py-2">More specifically, gross profit does not factor in the company's fixed costs which include expenses like rent, insurance and salaries. A company uses its gross profits to pay all these additional fixed expenses.</p>
                   <p className="py-2">Almost always gross profit should be positive. If the gross profit is negative, that means the company is likely losing a lot of money since gross profits come before it even subtracts more business expenses. Simply put, if gross profit is negative, then there's a very high likelihood that the company is losing money.</p>
-                  <p className="py-2">A company may have a positive gross profit figure while it is still losing money. Investors typically use this look at this margin when looking at a company that isn’t yet profitable, or is investing heavily into growth, to help gauge its profit potential.</p>
+                  <p className="py-2">A company may have a positive gross profit figure while it is still losing money. Investors typically use this look at this margin when looking at a company that isn't yet profitable, or is investing heavily into growth, to help gauge its profit potential.</p>
                 </label>
               </label> 
             </div>
@@ -116,7 +116,7 @@ const StockFinancials = () => {
               <input type="checkbox" id="GrossMargin" className="modal-toggle" />
               <label htmlFor="GrossMargin" className="modal cursor-pointer">
                 <label className="modal-box relative" htmlFor="">
-                  <p className="py-2 font-bold">Gross Margin = (Gross Profit / Revenue) * 100</p>
+                  <p className="py-2 font-bold">Gross Margin = (Gross Profit / Revenue) * 100%</p>
                   <p className="py-2">Gross margin is the company's gross profit relative to its revenue as a percent. If this value is negative, that means the company is not generating any positive gross profit.</p>
                   <p className="py-2">This value should always be positive! Companies with negative/0 gross margins are extremely unprofitable, whenever making an investment it's very important to understand if the company is becoming more/less profitable over time.</p>
                 
@@ -138,7 +138,7 @@ const StockFinancials = () => {
               <input type="checkbox" id="OperatingMargin" className="modal-toggle" />
               <label htmlFor="OperatingMargin" className="modal cursor-pointer">
                 <label className="modal-box relative" htmlFor="">
-                  <p className="py-2 font-bold">Operating Margin = (Operating Income / Revenue) * 100</p>
+                  <p className="py-2 font-bold">Operating Margin = (Operating Income / Revenue) * 100%</p>
                   <p className="py-2">Investors like to pay attention to a company's operating margin because it tells them what percentage of the revenue is being converted into operating income. The higher the operating margin the better, because it means the company's operations are more efficient at turning revenue into cash.</p>
                   <p className="py-2">Typically investors will also like to take note of how the operating and other margins are performing over time to see if the company is increasing its margins or if they're decreasing. Margins increasing means the company is making more cash from its operations for every dollar of revenue, which is a good thing because it means they're becoming more efficient.</p>
                   <p className="py-2">Keep in mind however that operating income is not straight profits for the company. A company may have a positive operating margin while it is still losing money. Investors typically use this look at this margin when looking at a company that isn't yet profitable, or is investing heavily into growth to help gauge its profit potential.</p>
@@ -163,7 +163,7 @@ const StockFinancials = () => {
               <input type="checkbox" id="NetMargin" className="modal-toggle" />
               <label htmlFor="NetMargin" className="modal cursor-pointer">
                 <label className="modal-box relative" htmlFor="">
-                 <p className="py-2 font-bold">Net Margin = (Net Income / Revenue) * 100</p>
+                 <p className="py-2 font-bold">Net Margin = (Net Income / Revenue) * 100%</p>
                  <p className="py-2">Investors like to pay attention to net income margins to see how much the company "earns" on every dollar of revenue. For example, if the net income margin is 15%, then it means that for every $1 of revenue, 15 cents becomes earnings for the company.</p>
                  <p className="py-2">Companies with higher net margins are typically more attractive to investors, and therefore command higher price ratios. In other words, investors are typically willing to pay more for companies with higher margins.</p>
                  <p className="py-2">There are a couple of reasons why this is the case. 1) Companies with higher margins have a larger buffer before they become unprofitable. A company with a 30% net margin has much more room for error or compression before the company starts losing money. On the other hand, a company with only a 3% net margin has much less room for error and margin compression before it becomes unprofitable. This ultimately means that the second company is at more risk of losing money. 2) Companies with higher net margins convert more revenue into earnings for the company. This means that the more revenue grows, the more rapidly net income will grow as well.</p>
@@ -190,7 +190,7 @@ const StockFinancials = () => {
               <input type="checkbox" id="ReturnOnAssetsTTM" className="modal-toggle" />
               <label htmlFor="ReturnOnAssetsTTM" className="modal cursor-pointer">
                 <label className="modal-box relative" htmlFor="">
-                 <p className="py-2 font-bold">Return On Assets = (Net Income / Total Assets) * 100</p>
+                 <p className="py-2 font-bold">Return On Assets = (Net Income / Total Assets) * 100%</p>
                  <p className="py-2">Return on assets (ROA) is a profitability metric that shows investors how profitable the company's assets are. Another way to word this would be the ROA shows investors how efficient the company's assets are at producing profits.</p>
                  <p className="py-2">Investors like to view the ROA figure because it shows them how profitable the company's assets are. For example, if a company is producing $1,000 in earnings and has $100,000 worth of assets, then the company's assets are only producing $1 in earnings for every $100 worth of assets. In other words, this company only has a 1% ROA, which means its assets aren't very efficient at producing earnings for shareholders.</p>
                  <p className="py-2">Typically investors like higher ROA figures for 2 reasons: 1. A high ROA means the company doesn't have to invest as much money into assets to continue growing earnings; 2. A high ROA can indicate the company doesn't have high capital expenditures or depreciation and amortization expenses.</p>
@@ -217,7 +217,7 @@ const StockFinancials = () => {
               <input type="checkbox" id="ReturnOnEquityTTM" className="modal-toggle" />
               <label htmlFor="ReturnOnEquityTTM" className="modal cursor-pointer">
                 <label className="modal-box relative" htmlFor="">
-                 <p className="py-2 font-bold">Return On Equity = (Net Income / Book Value) * 100</p>
+                 <p className="py-2 font-bold">Return On Equity = (Net Income / Book Value) * 100%</p>
                  <p className="py-2">Return on equity (ROE) is a measure of how much net income/earnings a company is able to make vs. its book value/shareholder equity as a percent. The calculation for this metric helps investors better understand it.</p>
                  <p className="py-2">Investors often use return on equity to see how profitable the assets of the company are. The ratio essentially tells investors how much net income/earnings the company can produce from its assets and how efficient they are at generating earnings.</p>
                  <p className="py-2">A high ROE means the assets are better at producing earnings, whereas a lower ROE means the assets are not as efficient at producing net income for shareholders.</p>
