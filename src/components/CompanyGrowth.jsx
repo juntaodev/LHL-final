@@ -87,6 +87,7 @@ const CompanyGrowth = () => {
     <div className='growth-table'>
 
       <table className="table-auto text-left">
+
         <thead>
           <tr>
             <th className="text-lg text-secondary p-4 bg-indigo-100">Growth
@@ -125,31 +126,42 @@ const CompanyGrowth = () => {
             </th>
           </tr>
         </thead>
+
         <tbody>
+
+          {/* Revenue Growth */}
           <tr className="hover text-base text-secondary">
             <td className='p-4 bg-indigo-50'>Revenue Growth</td>
             <td className='p-4 text-right'>{decToPercentage(revenueGrowthOneYear)}</td>
             <td className='p-4 text-right'>{decToPercentage(revenueGrowthFiveYear)}</td>
             <td className='p-4 text-right'>{revenueGrowthOneYear > revenueGrowthFiveYear ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/> }</td>
           </tr>
+
+          {/* Gross Profit Growth */}
           <tr className="hover text-base text-secondary">
             <td className='p-4 bg-indigo-50'>Gross Profit Growth</td>
             <td className='p-4 text-right'>{decToPercentage(grossProfitGrowthOneYear)}</td>
             <td className='p-4 text-right'>{decToPercentage(grossProfitGrowthFiveYear)}</td>
             <td className='p-4 text-right'>{grossProfitGrowthOneYear > grossProfitGrowthFiveYear ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
+
+          {/* Net Income Growth */}
           <tr className="hover text-base text-secondary">
             <td className='p-4 bg-indigo-50'>Net Income Growth</td>
             <td className='p-4 text-right'>{decToPercentage(netIncomeGrowthOneYear)}</td>
             <td className='p-4 text-right'>{decToPercentage(netIncomeGrowthFiveYear)}</td>
             <td className='p-4 text-right'>{netIncomeGrowthOneYear > netIncomeGrowthFiveYear ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
+
+          {/* Operating Cashflow Growth */}
           <tr className="hover text-base text-secondary">
             <td className='p-4 bg-indigo-50'>Operating Cashflow Growth</td>
             <td className='p-4 text-right'>{decToPercentage(operatingCashflowGrowthOneYear)}</td>
             <td className='p-4 text-right'>{decToPercentage(operatingCashflowGrowthFiveYear)}</td>
             <td className='p-4 text-right'>{operatingCashflowGrowthOneYear > operatingCashflowGrowthFiveYear ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
+
+          {/* Free Cashflow Growth */}
           <tr className="hover text-base text-secondary"> 
             <td className='p-4 bg-indigo-50'>Free Cashflow Growth</td>
             <td className='p-4 text-right'>{decToPercentage(freeCashflowGrowthOneYear)}</td>
@@ -157,6 +169,7 @@ const CompanyGrowth = () => {
             <td className='p-4 text-right'>{freeCashflowGrowthOneYear > freeCashflowGrowthFiveYear ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
 
+          {/*  */}
           <tr className="hover text-base text-secondary"> 
             <td className='p-4 bg-indigo-50'></td>
             <td className='p-4 text-right'></td>

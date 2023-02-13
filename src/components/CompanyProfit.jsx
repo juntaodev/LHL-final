@@ -86,6 +86,7 @@ const CompanyProfit = () => {
   return (
     <div className='profit-table'>
       <table className="table-auto text-left">
+        
         <thead>
           <tr>
             <th className="text-lg text-secondary p-4 bg-indigo-100">
@@ -130,6 +131,7 @@ const CompanyProfit = () => {
         </thead>
 
         <tbody>
+          {/* Gross Margin */}
           <tr className="hover text-base text-secondary">
             <td className='p-4 bg-indigo-50'>Gross Margin
               {/* The button to open modal */}
@@ -150,6 +152,8 @@ const CompanyProfit = () => {
             
             <td className='p-4 text-right'>{grossMargin > 0.5 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
+
+          {/* Operating Margin */}
           <tr className="hover text-base text-secondary">
             <td className='p-4 bg-indigo-50'>Operating Margin
               {/* The button to open modal */}
@@ -173,6 +177,8 @@ const CompanyProfit = () => {
             
             <td className='p-4 text-right'>{operatingMargin > 0.2 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
+
+          {/* Net Margin */}
           <tr className="hover text-base text-secondary">
             <td className='p-4 bg-indigo-50'>
               Net Margin
@@ -199,6 +205,8 @@ const CompanyProfit = () => {
             
             <td className='p-4 text-right'>{netMargin > 0.2 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
+          
+          {/* Free Cashflow Margin */}
           <tr className="hover text-base text-secondary">
             <td className='p-4 bg-indigo-50'>Free Cashflow Margin
               {/* The button to open modal */}
@@ -223,6 +231,8 @@ const CompanyProfit = () => {
             
             <td className='p-4 text-right'>{freeCashflowMargin > 0.1 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
+
+          {/* Cash Conversion */}
           <tr className="hover text-base text-secondary"> 
             <td className='p-4 bg-indigo-50'>Cash Conversion
               {/* The button to open modal */}
@@ -244,6 +254,8 @@ const CompanyProfit = () => {
             
             <td className='p-4 text-right'>{cashConversion > 1 ? <FlagFilled style={{color:"#15803d"}}/> : <FlagFilled style={{color:"#dc2626"}}/>}</td>
           </tr>
+
+          {/*  */}
           <tr className="hover text-base text-secondary"> 
             <td className='p-4 bg-indigo-50'></td>
             <td className='p-4 text-right'></td>

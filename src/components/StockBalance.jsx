@@ -459,7 +459,7 @@ const StockBalance = () => {
               <label htmlFor="commonStockSharesOutstanding" className="modal cursor-pointer font-normal">
                 <label className="modal-box relative" htmlFor="">
                   
-                  <p className="py-2">Shares outstanding is how many shares of the company there are in existence. Stock Unlock shows the companies share count that they report on their financials, which may not match their US share count if the company is traded on multiple exchanges. Companies can issue/sell more shares to the public which increases its share count, or they can buy back shares off the public markets which decreases the share count. Companies share counts are constantly changing depending on what the company is doing.</p>
+                  <p className="py-2">Shares outstanding is how many shares of the company there are in existence. Companies can issue/sell more shares to the public which increases its share count, or they can buy back shares off the public markets which decreases the share count. Companies share counts are constantly changing depending on what the company is doing.</p>
                   <p className="py-2">Investors like to pay attention to the trend of the company's outstanding shares over time, because it helps them see if the business is issuing more shares consistently (which lowers the share price), or if the company is buying back shares and rewarding shareholders by removing shares from the public market (which increases the share price for investors).</p>
                 </label>
               </label>

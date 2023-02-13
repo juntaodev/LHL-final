@@ -85,6 +85,7 @@ const CompanyReturn = () => {
     <div className='returns-table'>
 
       <table className="table-auto text-left">
+        
         <thead>
           <tr>
             <th className="text-lg text-secondary p-4 bg-indigo-100">
@@ -127,6 +128,7 @@ const CompanyReturn = () => {
             </th>
           </tr>
         </thead>
+
         <tbody>
           {/* ROIC */}
           <tr className="hover text-base text-secondary">
