@@ -104,7 +104,25 @@ const CompanyGrowth = () => {
             </th>
             <th className="text-lg text-secondary p-4 bg-indigo-100">Fiscal Year {latestFiscalYear}</th>
             <th className="text-lg text-secondary p-4 bg-indigo-100">5 Year AVG</th>
-            <th className="text-lg text-secondary p-4 bg-indigo-100">Flag</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">
+              
+              {/* The button to open modal */}
+              <label htmlFor="growthflag" className="btn btn-xs btn-ghost btn-circle">?</label>
+
+              {/* Put this part before </body> tag */}
+              <input type="checkbox" id="growthflag" className="modal-toggle" />
+              <label htmlFor="growthflag" className="modal cursor-pointer font-normal text-left text-secondary text-base">
+                <label className="modal-box relative " htmlFor="">
+                  <p className="py-2"> A <FlagFilled style={{color:"#15803d"}}/> generally means strong performance, and otherwise <FlagFilled style={{color:"#dc2626"}}/> means weak performance.</p>
+                  <p className="py-2 font-bold"> In general, a healthy growth rate should be sustainable for the company. In most cases, an ideal growth rate will be around 15 and 25% annually.</p>
+                  <p className="py-2 font-bold"> Latest fiscal year growth equal or above five year average growth will receive <FlagFilled style={{color:"#15803d"}}/> .</p>
+                  
+                  <p className="py-2"> Again, these guidelines vary widely by industry and company size, and can be impacted by a variety of other factors.</p>
+                  
+                </label>
+              </label>
+              Flag
+            </th>
           </tr>
         </thead>
         <tbody>

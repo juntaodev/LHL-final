@@ -105,25 +105,26 @@ const CompanyProfit = () => {
             <th className="text-lg text-secondary p-4 bg-indigo-100">Fiscal Year {latestFiscalYear}</th>
             
             <th className="text-lg text-secondary p-4 bg-indigo-100">
-              Flag
+              
               {/* The button to open modal */}
-              <label htmlFor="flag" className="btn btn-xs btn-ghost btn-circle">?</label>
+              <label htmlFor="profitflag" className="btn btn-xs btn-ghost btn-circle">?</label>
 
               {/* Put this part before </body> tag */}
-              <input type="checkbox" id="flag" className="modal-toggle" />
-              <label htmlFor="flag" className="modal cursor-pointer font-normal text-left text-secondary text-base">
+              <input type="checkbox" id="profitflag" className="modal-toggle" />
+              <label htmlFor="profitflag" className="modal cursor-pointer font-normal text-left text-secondary text-base">
                 <label className="modal-box relative " htmlFor="">
-                  <p className="py-2"> A green flag generally means strong performance, and otherwise red flag means weak performance.</p>
+                  <p className="py-2"> A <FlagFilled style={{color:"#15803d"}}/> generally means strong performance, and otherwise <FlagFilled style={{color:"#dc2626"}}/> means weak performance.</p>
                   <p className="py-2"> A good margin will vary considerably by industry, but as a general rule of thumb:</p>
-                  <p className="py-2"> 50% or above gross margin will receive green flag;</p>
-                  <p className="py-2"> 20% or above operating margin will receive green flag;</p>
-                  <p className="py-2"> 20% or above net margin will receive green flag;</p>
-                  <p className="py-2"> 10% or above free cash flow margin will receive green flag;</p>
-                  <p className="py-2"> 100% or above cash conversion will receive green flag;</p>
+                  <p className="py-2 font-bold"> 50% or above gross margin will receive <FlagFilled style={{color:"#15803d"}}/> ;</p>
+                  <p className="py-2 font-bold"> 20% or above operating margin will receive <FlagFilled style={{color:"#15803d"}}/> ;</p>
+                  <p className="py-2 font-bold"> 20% or above net margin will receive <FlagFilled style={{color:"#15803d"}}/> ;</p>
+                  <p className="py-2 font-bold"> 10% or above free cash flow margin will receive <FlagFilled style={{color:"#15803d"}}/> ;</p>
+                  <p className="py-2 font-bold"> 100% or above cash conversion will receive <FlagFilled style={{color:"#15803d"}}/> .</p>
                   <p className="py-2"> Again, these guidelines vary widely by industry and company size, and can be impacted by a variety of other factors.</p>
                   
                 </label>
               </label>
+              Flag
             </th>
           </tr>
         </thead>
