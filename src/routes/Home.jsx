@@ -1,7 +1,6 @@
 import React from "react";
 import HomeIntro from "../components/HomeIntro";
-import Accordions from "../components/Accordions";
-import StockList from "../components/StockList";
+
 import AutoCompleteSearch from "../components/AutoCompleteSearch";
 import TrendingStocks from "../components/TrendingStocks";
 

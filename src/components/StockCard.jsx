@@ -53,7 +53,7 @@ const StockCard = (props) => {
   return (
     
     <Link to={`/stock/${props.ticker}`}>
-    <div>
+    <div className='hover:scale-110 duration-300'>
     <div className="avatar">
       <div className="w-24 rounded">
         <img className='object-scale-down ' src={stockLogo} alt="company log"/>
