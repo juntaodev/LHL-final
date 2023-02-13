@@ -77,7 +77,7 @@ const CompanyReturn = () => {
 
   const ROE = stockIncome?.annualReports[0]?.netIncome / stockBalance?.annualReports[0]?.totalShareholderEquity;
 
-  const ROIC = (stockIncome?.annualReports[0]?.operatingIncome - stockIncome?.annualReports[0]?.incomeTaxExpense) / (Number(stockBalance?.annualReports[0]?.totalShareholderEquity) + Number(stockBalance?.annualReports[0]?.shortTermDebt) + Number(stockBalance?.annualReports[0]?.longTermDebt) - Number(stockBalance?.annualReports[0]?.cashAndCashEquivalentsAtCarryingValue));
+  const ROIC = (Number(stockIncome?.annualReports[0]?.operatingIncome) - Number(stockIncome?.annualReports[0]?.incomeTaxExpense)) / (Number(stockBalance?.annualReports[0]?.totalShareholderEquity) + Number(stockBalance?.annualReports[0]?.shortTermDebt) + Number(stockBalance?.annualReports[0]?.longTermDebt) - Number(stockBalance?.annualReports[0]?.cashAndCashEquivalentsAtCarryingValue));
 
   const ROCE = stockIncome?.annualReports[0]?.ebit / (stockBalance?.annualReports[0]?.totalAssets - stockBalance?.annualReports[0]?.totalCurrentLiabilities);
 
