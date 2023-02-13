@@ -87,7 +87,20 @@ const CompanyHealth = () => {
       <table className="table-auto text-left">
         <thead>
           <tr>
-            <th className="text-lg text-secondary p-4 bg-indigo-100">Financial Health</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">
+              Financial Health
+              {/* The button to open modal */}
+              <label htmlFor="Health" className="btn btn-xs btn-ghost btn-circle">?</label>
+
+              {/* Put this part before </body> tag */}
+              <input type="checkbox" id="Health" className="modal-toggle" />
+              <label htmlFor="Health" className="modal cursor-pointer font-normal text-left text-secondary text-base">
+                <label className="modal-box relative " htmlFor="">
+                  <p className="py-2">This segment shows metrics that help investors better understand the financial health of the company. we group these metrics here so our users can easily see how the financials of the company are, and if there's any red flags to be aware of.</p>
+                  
+                </label>
+              </label>
+            </th>
             <th className="text-lg text-secondary p-4 bg-indigo-100">Fiscal Year {latestFiscalYear}</th>
             
             <th className="text-lg text-secondary p-4 bg-indigo-100">Flag</th>

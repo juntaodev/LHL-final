@@ -87,7 +87,21 @@ const CompanyReturn = () => {
       <table className="table-auto text-left">
         <thead>
           <tr>
-            <th className="text-lg text-secondary p-4 bg-indigo-100">Returns</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">
+              Returns
+              {/* The button to open modal */}
+              <label htmlFor="Returns" className="btn btn-xs btn-ghost btn-circle">?</label>
+
+              {/* Put this part before </body> tag */}
+              <input type="checkbox" id="Returns" className="modal-toggle" />
+              <label htmlFor="Returns" className="modal cursor-pointer font-normal text-left text-secondary text-base">
+                <label className="modal-box relative " htmlFor="">
+                  <p className="py-2">This segment shows investors how efficient the company is at producing returns for its shareholders. Many investors pay attention to how much returns the company is generating on its book value and invested capital, so we group these metrics together here and points out any red flags investors should be aware of.</p>
+                  
+                </label>
+              </label> 
+            
+            </th>
             <th className="text-lg text-secondary p-4 bg-indigo-100">Fiscal Year {latestFiscalYear}</th>
             
             <th className="text-lg text-secondary p-4 bg-indigo-100">Flag</th>

@@ -88,7 +88,20 @@ const CompanyProfit = () => {
       <table className="table-auto text-left">
         <thead>
           <tr>
-            <th className="text-lg text-secondary p-4 bg-indigo-100">Profitabilities</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">
+              Profitability
+              {/* The button to open modal */}
+              <label htmlFor="Profitability" className="btn btn-xs btn-ghost btn-circle">?</label>
+
+              {/* Put this part before </body> tag */}
+              <input type="checkbox" id="Profitability" className="modal-toggle" />
+              <label htmlFor="Profitability" className="modal cursor-pointer font-normal text-left text-secondary text-base">
+                <label className="modal-box relative " htmlFor="">
+                  <p className="py-2">This segment shows metrics related to the company's profitability. These are metrics that investors use to gauge how profitable the company is, and how effective it is at producing returns for its shareholders.</p>
+                  
+                </label>
+              </label> 
+            </th>
             <th className="text-lg text-secondary p-4 bg-indigo-100">Fiscal Year {latestFiscalYear}</th>
             
             <th className="text-lg text-secondary p-4 bg-indigo-100">Flag</th>

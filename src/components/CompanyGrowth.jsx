@@ -89,7 +89,19 @@ const CompanyGrowth = () => {
       <table className="table-auto text-left">
         <thead>
           <tr>
-            <th className="text-lg text-secondary p-4 bg-indigo-100">Growth</th>
+            <th className="text-lg text-secondary p-4 bg-indigo-100">Growth
+              {/* The button to open modal */}
+              <label htmlFor="Growth" className="btn btn-xs btn-ghost btn-circle">?</label>
+
+              {/* Put this part before </body> tag */}
+              <input type="checkbox" id="Growth" className="modal-toggle" />
+              <label htmlFor="Growth" className="modal cursor-pointer font-normal text-left text-secondary text-base">
+                <label className="modal-box relative " htmlFor="">
+                  <p className="py-2">This segment shows metrics related to the company's growth. These are metrics that investors pay attention to when analyzing a company's growth. Typically investors prefer companies that are growing more rapidly.</p>
+                  
+                </label>
+              </label> 
+            </th>
             <th className="text-lg text-secondary p-4 bg-indigo-100">Fiscal Year {latestFiscalYear}</th>
             <th className="text-lg text-secondary p-4 bg-indigo-100">5 Year AVG</th>
             <th className="text-lg text-secondary p-4 bg-indigo-100">Flag</th>
