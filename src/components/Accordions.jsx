@@ -50,7 +50,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(1)}>
               <strong><p> 1. What is stock?</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4 py-2">
+            <AccordionBody className="px-4 text-lg font-medium">
              <p>A stock, also known as equity, represents a piece of ownership in a company. Units of stock are called “shares”. When you purchase a stock, you are essentially buying a small portion of the company and becoming a shareholder. As the company grows and becomes more valuable, the value of your stock also increases, and you may be able to sell it for a profit.</p>
              <br/>
              <p>Imagine that your friend owns a bubble tea booth, but he only has $1,000 to start. In order to buy the necessary supplies (e.g., cups, icing, tea), he might raise money from friends and family. Let’s pretend that you fund his business $1,000, so he now has $2,000 total and he’s able to get the business off the ground. In exchange for your investment, he might agree to give you 50% of the business and its profits, but you would also participate in any losses the business may take. So, one year later, assuming the business is going really well and earns $1000 in profit. The bubble tea booth now is worth $3000 and your 50% stake in the business turns into $1500. Or, one year later, the business is struggling, which costs $1000 in total. The bubble tea booth now is worth $1000 and your 50% shrinks into $500. This is kind of how stocks work, except on a much larger level.</p>
@@ -62,7 +62,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(2)}>
               <strong><p>2. What is the stock market?</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4">
+            <AccordionBody className="px-4 text-lg font-medium">
              <p>The stock market is a marketplace where stocks (or shares) of companies are bought and sold. It serves as a platform for companies to raise capital by issuing and selling shares to the public, and for investors to buy and sell these shares. The stock market can be thought of as a barometer for the health of the economy, as stock prices are influenced by a variety of factors such as economic growth, interest rates, and company performance. The two most well-known stock markets in the world are the New York Stock Exchange (NYSE) and the NASDAQ. For Canadians, The Toronto Stock Exchange (TSX) is the largest stock exchange in Canada and one of the largest in North America. It is located in Toronto and is home to a wide variety of Canadian-based companies from various industries such as mining, finance, and technology.</p>
             </AccordionBody>
           </Accordion>
@@ -71,7 +71,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(3)}>
               <strong><p>3. How does the stock market work?</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4">
+            <AccordionBody className="px-4 text-lg font-medium">
              <p>The stock market serves two important purposes. First, it helps companies raise money, also called “capital”, from the public by offering shares for sale, which can be used to fund and expand their business. Secondly, it gives an investor, who purchases those shares, an opportunity to have a share in the company’s profits.</p>
              <br />
              <p>The stock market operates through a network of exchanges, brokers, and electronic trading systems. To participate in the stock market, an investor must open a brokerage account and place an order to buy or sell a stock. When the order is executed, the broker matches it with another investor who wants to sell or buy the same stock. The price of a stock is determined by supply and demand, meaning that if more people want to buy a stock than sell it, the price will go up, and if more people want to sell a stock than buy it, the price will go down.</p>
@@ -84,7 +84,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(4)}>
               <strong><p>4. Why do people invest in stocks?</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4">
+            <AccordionBody className="px-4 text-lg font-medium">
              <p>Stocks are often considered one of the best investments due to several factors, including:</p>
              <br/>
              <p>Potential for long-term growth: Investing in the stock market can be a way for individuals to grow their wealth over the long term, as the value of stocks has historically increased over time.</p>
@@ -105,7 +105,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(5)}>
               <strong><p>5. Different investments and their historical returns</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4">
+            <AccordionBody className="px-4 text-lg font-medium">
              <p>The historical returns of different investments can vary depending on the time frame and specific investment, but here is a general overview:</p>
              <br />
              <p>Stock Market: Historically, the stock market has generated strong returns over the long term, with an average annual return of around 9%-10% in the US and Canada over the last century. However, it's important to note that the stock market can be volatile in the short term and that past performance is not a guarantee of future results.</p>
@@ -122,7 +122,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(6)}>
               <strong><p>* Before investing in stocks</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4">
+            <AccordionBody className="px-4 text-lg font-medium">
              <p>It's important to consider the following factors:</p>
              <br />
              <p>1. Investment Goals: Determine your investment goals and time horizon. Are you looking to generate income or build wealth over the long term? Understanding your goals will help guide your investment decisions.</p>
@@ -151,7 +151,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(1)}>
               <strong><p> 1. What is stock market index?</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4">
+            <AccordionBody className="px-4 text-lg font-medium">
              <p>A stock market index is a statistical measure of the performance of a group of stocks. It is designed to give investors a broad representation of the stock market as a whole, or of a specific market segment.</p>
              <br/>
              <p>The most common type of stock market index is a market capitalization weighted index, which gives greater weight to the larger companies and less weight to the smaller companies. For example, the S&P 500 Index is a market cap weighted index that tracks the performance of 500 large-cap stocks listed on U.S. exchanges.</p>
@@ -163,7 +163,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(2)}>
               <strong><p>2. Common stock market indexes</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4">
+            <AccordionBody className="px-4 text-lg font-medium">
              <p>S&P 500 Index : The S&P 500 Index includes the 500 leading U.S. publicly traded companies, with a primary emphasis on market capitalization. It is one of the most commonly followed equity indices and many investors view it as a representation of the U.S economy.</p>
              <br />
              <p>Dow Jones Industrial Average: The Dow Jones includes 30 U.S headquartered companies. The Dow Jones goal is to represent the U.S economy and its strength. However, it excludes transportation and utility companies. The Dow also only includes stocks that have an excellent reputation, have demonstrated sustained growth, and get most of their revenue from the U.S. Basically, the Dow includes 30 of  the highest quality U.S based companies. For example, the top companies are currently Apple, Microsoft, JP Morgan, Visa, Johnson & Johnson, UnitedHealth, Walmart, Home Depot, Procter & Gamble and Disney.
@@ -180,7 +180,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(3)}>
               <strong><p>3. What is market capitalization?</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4">
+            <AccordionBody className="px-4 text-lg font-medium">
              <p>Market capitalization, also market cap, is a measure of the value of a company that is calculated by multiplying the company's stock price by the number of its outstanding shares. Market capitalization is used as a way to gauge the size and value of a publicly traded company, and it is often used to classify companies into categories, such as large cap, mid cap, and small cap.</p>
              <br />
              <p>A company with a high market capitalization is typically considered to be well-established and financially stable, while a company with a low market capitalization is considered to be smaller and potentially more risky. Market capitalization can also be used to evaluate the performance of a company, as well as the overall performance of the stock market.</p>
@@ -194,7 +194,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(4)}>
               <strong><p>4. What is the stock price?</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4">
+            <AccordionBody className="px-4 text-lg font-medium">
              <p>The stock price is the current market value of a share of stock in a publicly traded company. It is determined by supply and demand in the stock market, as buyers and sellers negotiate the price at which they are willing to buy or sell the stock.</p>
              <br />
              <p>The stock price of a company can fluctuate throughout the day and over time, based on a variety of factors, such as the company's financial performance, changes in the economy, and investor sentiment. A stock's price can also be influenced by events such as earnings announcements, major news events, and changes in the company's leadership or strategy.</p>
@@ -209,7 +209,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(5)}>
               <strong><p>5. What is shares outstanding?</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4">
+            <AccordionBody className="px-4 text-lg font-medium">
              <p>Shares outstanding refers to the number of shares of a company's stock that are currently owned by investors, including both individual and institutional investors. This figure is an important metric for evaluating a company's financial performance, as it helps to determine the level of ownership that is held by investors and the liquidity of the company's stock.</p>
              <br />
              <p>Shares outstanding can be found in a company's financial statements, typically in its balance sheet or in its annual report. This information is also publicly available from financial data providers and stock exchanges.</p>
@@ -223,7 +223,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(6)}>
               <strong><p>6. What is financial performance?</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4">
+            <AccordionBody className="px-4 text-lg font-medium">
              <p>Financial performance refers to how well a company is able to manage its financial resources and meet its financial objectives. This includes a company's ability to generate revenue, control costs, and manage debt, as well as its ability to create value for its shareholders.</p>
              <br />
              <p>To understand a company's financial performance, it's important to review its financial statements, such as its income statement, balance sheet, and cash flow statement. Additionally, it's helpful to compare a company's financial performance to that of its competitors and to the industry as a whole, as well as to review its historical performance over time.</p>
@@ -239,7 +239,7 @@ const Accordions = () => {
             <AccordionHeader onClick={() => handleSubOpen(7)}>
               <strong><p>7. What are financial statements?</p></strong>
             </AccordionHeader>
-            <AccordionBody className="px-4">
+            <AccordionBody className="px-4 text-lg font-medium">
              <p>Financial statements are official records that summarize a company's financial activity over a specific period of time, such as a quarter or a year. They provide investors, lenders, and other stakeholders with an overview of a company's financial health and performance. The three main types of financial statements are:</p>
              <br />
              <p>Income Statement: An income statement summarizes a company's revenues and expenses over a specific period of time, and shows its net income or loss.</p>
