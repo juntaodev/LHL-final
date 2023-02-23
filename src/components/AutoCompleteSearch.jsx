@@ -96,7 +96,7 @@ const AutoCompleteSearch = () => {
   
 
   return (
-    <div className='px-8 pt-8 pb-24'> 
+    <div className='px-8 pt-8'> 
     <div className="App">
       <header className="App-header">
         <div style={{ width: 500 } } className="mx-auto">
