@@ -17,6 +17,7 @@ const Navbar = () => {
           </div>
         
         </label>
+        
         <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
           <li className='text-secondary'><Link to="/starter">Starter</Link></li>
           {/* <li className='text-secondary'><Link to="/screener">Screener</Link></li> */}
