@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
@@ -41,7 +41,7 @@ const StockSearch = () => {
 
     async function fetchData() {
 
-      const API_KEY = 'KJEJ4ZQQOGDC75P4';
+      const API_KEY = process.env.ALPHA_API_KEY;
       const url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${inputValue}&apikey=${API_KEY}`;
 
       try {
@@ -60,9 +60,9 @@ const StockSearch = () => {
     fetchData();
   };
 
-  const handleBlur = () => {
-    setShowResults(false);
-  };
+  // const handleBlur = () => {
+  //   setShowResults(false);
+  // };
 
   if (error) {
     return <div>Error: {error.message}</div>;

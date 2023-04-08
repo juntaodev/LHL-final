@@ -17,7 +17,7 @@ const StockCard = (props) => {
       url: 'https://twelve-data1.p.rapidapi.com/logo',
       params: {symbol: `${props.ticker}`},
       headers: {
-        'X-RapidAPI-Key': '3739bf6e15msh3f361324e7ae496p1291a4jsneeac436b4fc4',
+        'X-RapidAPI-Key': process.env.TWELVE_API_KEY,
         'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
       }
     };

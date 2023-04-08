@@ -12,7 +12,7 @@ const CompanyProfit = () => {
 
   const param = useParams();
 
-  const API_KEY = 'KJEJ4ZQQOGDC75P4';
+  const API_KEY = process.env.ALPHA_API_KEY;
   const incomeUrl = `https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=${param.stockSymbol}&apikey=${API_KEY}`;
   const cashUrl = `https://www.alphavantage.co/query?function=CASH_FLOW&symbol=${param.stockSymbol}&apikey=${API_KEY}`;
 

@@ -10,7 +10,7 @@ const StockValuations = () => {
 
   const param = useParams();
 
-  const API_KEY = 'KJEJ4ZQQOGDC75P4';
+  const API_KEY = process.env.ALPHA_API_KEY;
   const url = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${param.stockSymbol}&apikey=${API_KEY}`;
 
   useEffect(() => {
